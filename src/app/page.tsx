@@ -3,7 +3,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare, UserCheck } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
@@ -44,11 +44,11 @@ export default function Home() {
               Crafting intelligent solutions and robust backends to drive innovation and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* View My Work button still uses kbc-button */}
+              {/* View My Work button uses keyboard css */}
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              {/* Download Resume button uses default Shadcn outline styling */}
+              {/* Download Resume button uses default Shadcn outline styling (no keyboard css) */}
               <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
@@ -145,7 +145,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {/* Project Cards - Wrapped with Link */}
-              <Link href={projectLinks["Processimo – AI Agent Marketplace"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+              <Link href={projectLinks["Processimo – AI Agent Marketplace"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
                   title="Processimo – AI Agent Marketplace"
                   role="Founder & AI Automation Architect"
@@ -155,7 +155,7 @@ export default function Home() {
                   className="h-full" // Ensure card fills the link height
                 />
               </Link>
-               <Link href={projectLinks["News Aggregator API (Spring Boot)"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+               <Link href={projectLinks["News Aggregator API (Spring Boot)"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                  <ProjectCard
                    title="News Aggregator API (Spring Boot)"
                    role="Backend API Developer"
@@ -165,7 +165,7 @@ export default function Home() {
                    className="h-full"
                  />
                </Link>
-               <Link href={projectLinks["Employee Tracking System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+               <Link href={projectLinks["Employee Tracking System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
                   title="Employee Tracking System"
                   role="Full-Stack Developer"
@@ -175,7 +175,7 @@ export default function Home() {
                   className="h-full"
                 />
                </Link>
-               <Link href={projectLinks["Library Management System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+               <Link href={projectLinks["Library Management System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
                   title="Library Management System"
                   role="Backend Developer"
@@ -185,7 +185,7 @@ export default function Home() {
                   className="h-full"
                 />
                </Link>
-               <Link href={projectLinks["Smart Parking Lot System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+               <Link href={projectLinks["Smart Parking Lot System"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
                   title="Smart Parking Lot System"
                   role="System Designer & Backend Engineer"
@@ -195,7 +195,7 @@ export default function Home() {
                   className="h-full"
                 />
               </Link>
-               <Link href={projectLinks["TaskMaster – Collaborative Task Tracking"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block">
+               <Link href={projectLinks["TaskMaster – Collaborative Task Tracking"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
                   title="TaskMaster – Collaborative Task Tracking"
                   role="Full-Stack Engineer"
@@ -292,7 +292,7 @@ export default function Home() {
                   <Code className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">GitHub Contributions</h3>
                   <p className="text-muted-foreground mb-2">Active contributor to AI and backend projects.</p>
-                   {/* Link still uses kbc-button */}
+                   {/* Link uses kbc-button */}
                    <a href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
                        <Github className="mr-2 h-4 w-4" /> View Repositories
                    </a>
@@ -300,8 +300,12 @@ export default function Home() {
                 <div className="flex flex-col items-center">
                   <Users className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
-                   <p className="text-muted-foreground">Sharing knowledge via n8n workflows & LangChain discussions.</p>
-                   <p className="text-muted-foreground">Mentoring peers on Udacity forums.</p>
+                   <p className="text-muted-foreground mb-2">Sharing knowledge via n8n workflows & LangChain discussions.</p>
+                   <p className="text-muted-foreground mb-4">Mentoring peers on Udacity forums.</p>
+                    {/* New community profile button */}
+                    <a href="https://community.n8n.io/u/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
+                       <UserCheck className="mr-2 h-4 w-4" /> View Community Profile
+                   </a>
                  </div>
              </div>
            </div>
@@ -317,12 +321,12 @@ export default function Home() {
               Interested in collaborating or discussing a project? Feel free to reach out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               {/* Schedule a Call button uses default Shadcn secondary styling */}
-              <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+               {/* Schedule a Call button uses keyboard css */}
+              <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
                 Schedule a Call
               </a>
-              {/* Email Me button uses default Shadcn outline styling specific to this section */}
-              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
+              {/* Email Me button uses keyboard css with custom styling */}
+              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
                 <Mail className="mr-2 h-4 w-4" /> Email Me
               </a>
             </div>
@@ -352,9 +356,13 @@ interface ProjectCardProps {
 }
 
 // Make the ProjectCard component accept a className and apply glassmorphism
+// Added group hover and active states for animation
 function ProjectCard({ title, role, techStack, description, highlights, className }: ProjectCardProps) {
   return (
-    <Card className={cn("flex flex-col glassmorphism-card", className)}> {/* Apply glassmorphism and custom class */}
+    <Card className={cn(
+        "flex flex-col glassmorphism-card transition-transform duration-200 ease-in-out group-hover:scale-[1.02] group-active:scale-[0.98]",
+        className
+     )}>
       <CardHeader>
         <CardTitle className="text-card-foreground">{title}</CardTitle> {/* Adjusted text color for contrast */}
         <CardDescription className="text-card-foreground/70">{role}</CardDescription> {/* Adjusted text color */}
