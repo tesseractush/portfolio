@@ -5,7 +5,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, SquareCode, UserCheck, Calendar, MessageSquare } from 'lucide-react'; // Added MessageSquare
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, SquareCode, UserCheck, Calendar, MessageSquare } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
@@ -32,11 +32,12 @@ export default function Home() {
     "Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems", "FastAPI", "Agent Orchestration", "React", "PostgreSQL", "Tailwind", "OAuth", "VPS",
     // Data Analytics
     "Metrics-driven decision-making", "Root-cause analysis", "Performance Optimization",
-    // Specific Project Skills
-    "Thymeleaf/React", // From TaskMaster
+    // Specific Project Skills derived from Tech Stacks
+    "REST APIs", // From News Aggregator (redundant?)
   ];
   // Remove duplicates and sort
   const uniqueSkills = Array.from(new Set(skills)).sort();
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -75,95 +76,95 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About Me Section */}
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+       {/* About Me Section */}
+         <section id="about" className="w-full py-12 md:py-24 lg:py-32">
+           <div className="container px-4 md:px-6 max-w-4xl mx-auto">
              <div className="flex flex-col items-center"> {/* Center the content */}
-                 <div className="w-full max-w-xl bg-card rounded-lg shadow-lg overflow-hidden border border-border">
-                     {/* Cover Image Placeholder */}
-                    <div className="h-48 bg-muted relative overflow-hidden">
-                         <Image
-                             src="https://picsum.photos/seed/cover/800/200"
-                             alt="Profile cover"
-                             layout="fill"
-                             objectFit="cover"
-                             priority
-                         />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                     </div>
-
-                     {/* Profile Content */}
-                     <div className="p-8 flex flex-col items-center -mt-16">
-                         {/* Avatar */}
-                         <Avatar className="w-32 h-32 border-4 border-background shadow-lg">
-                             <AvatarImage src="https://picsum.photos/seed/avatar/200" alt="Mrityunjay Srivastava" />
-                             <AvatarFallback>MS</AvatarFallback>
-                         </Avatar>
-
-                         {/* Name & Title */}
-                         <h1 className="text-2xl font-bold mt-4">Mrityunjay Srivastava</h1>
-                         <p className="text-muted-foreground">Full Stack Developer & AI Automation Engineer</p>
-
-                         {/* Bio/Intro */}
-                          <p className="text-center text-muted-foreground mt-4 text-sm">
-                              With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
-                          </p>
-
-                         {/* Personal Interests */}
-                         <div className="mt-6 w-full">
-                             <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Interests</h4>
-                             <div className="flex flex-wrap gap-2 justify-center">
-                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
-                                     <Mountain className="h-3 w-3" /> Mountaineering
-                                 </Badge>
-                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
-                                     <Palette className="h-3 w-3" /> Digital Art
-                                 </Badge>
-                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
-                                     <BookOpen className="h-3 w-3" /> Reading
-                                 </Badge>
-                             </div>
-                         </div>
-
-                         {/* Connect Links */}
-                         <div className="mt-6 w-full">
-                            <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Connect</h4>
-                             <div className="flex flex-wrap gap-4 justify-center">
-                                 <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="GitHub">
-                                     <Github className="h-5 w-5" />
-                                     <span className="sr-only">GitHub</span>
-                                 </Link>
-                                 <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
-                                     <Linkedin className="h-5 w-5" />
-                                     <span className="sr-only">LinkedIn</span>
-                                 </Link>
-                                 <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" title="Email">
-                                     <Mail className="h-5 w-5" />
-                                     <span className="sr-only">Email</span>
-                                 </a>
-                                 <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
-                                     <Twitter className="h-5 w-5" />
-                                     <span className="sr-only">Twitter</span>
-                                 </Link>
-                                 <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
-                                     <Instagram className="h-5 w-5" />
-                                     <span className="sr-only">Instagram</span>
-                                 </Link>
-                                 <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
-                                     <SquareCode className="h-5 w-5" />
-                                     <span className="sr-only">LeetCode</span>
-                                 </Link>
-                             </div>
-                         </div>
-                     </div>
+               <div className="w-full max-w-xl bg-card rounded-lg shadow-lg overflow-hidden border border-border">
+                 {/* Cover Image Placeholder */}
+                 <div className="h-48 bg-muted relative overflow-hidden">
+                   <Image
+                     src="https://picsum.photos/seed/cover/800/200"
+                     alt="Profile cover"
+                     fill // Use fill instead of layout
+                     style={{ objectFit: 'cover' }} // Use style for objectFit
+                     priority
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                  </div>
+
+                 {/* Profile Content */}
+                 <div className="p-8 flex flex-col items-center -mt-16">
+                   {/* Avatar */}
+                   <Avatar className="w-32 h-32 border-4 border-background shadow-lg">
+                     <AvatarImage src="https://picsum.photos/seed/avatar/200" alt="Mrityunjay Srivastava" />
+                     <AvatarFallback>MS</AvatarFallback>
+                   </Avatar>
+
+                   {/* Name & Title */}
+                   <h1 className="text-2xl font-bold mt-4">Mrityunjay Srivastava</h1>
+                   <p className="text-muted-foreground">Full Stack Developer & AI Automation Engineer</p>
+
+                   {/* Bio/Intro */}
+                   <p className="text-center text-muted-foreground mt-4 text-sm">
+                     With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
+                   </p>
+
+                   {/* Personal Interests */}
+                   <div className="mt-6 w-full">
+                     <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Interests</h4>
+                     <div className="flex flex-wrap gap-2 justify-center">
+                       <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                         <Mountain className="h-3 w-3" /> Mountaineering
+                       </Badge>
+                       <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                         <Palette className="h-3 w-3" /> Digital Art
+                       </Badge>
+                       <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                         <BookOpen className="h-3 w-3" /> Reading
+                       </Badge>
+                     </div>
+                   </div>
+
+                   {/* Connect Links */}
+                   <div className="mt-6 w-full">
+                     <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Connect</h4>
+                     <div className="flex flex-wrap gap-4 justify-center">
+                       <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="GitHub">
+                         <Github className="h-5 w-5" />
+                         <span className="sr-only">GitHub</span>
+                       </Link>
+                       <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
+                         <Linkedin className="h-5 w-5" />
+                         <span className="sr-only">LinkedIn</span>
+                       </Link>
+                       <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" title="Email">
+                         <Mail className="h-5 w-5" />
+                         <span className="sr-only">Email</span>
+                       </a>
+                       <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
+                         <Twitter className="h-5 w-5" />
+                         <span className="sr-only">Twitter</span>
+                       </Link>
+                       <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
+                         <Instagram className="h-5 w-5" />
+                         <span className="sr-only">Instagram</span>
+                       </Link>
+                       <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
+                         <SquareCode className="h-5 w-5" />
+                         <span className="sr-only">LeetCode</span>
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
              </div>
-          </div>
+           </div>
          </section>
 
         <Separator />
 
-        {/* Core Strengths Section */}
+         {/* Core Strengths Section */}
         <section id="strengths" className="w-full py-12 md:py-24 lg:py-32">
            <div className="container px-4 md:px-6">
              <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Core Strengths & Skills</h2>
@@ -390,23 +391,33 @@ export default function Home() {
 
         <Separator />
 
-        {/* Contact Section */}
-         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-accent/80 to-accent/90 text-accent-foreground dark:from-accent/70 dark:to-accent/80">
-          <div className="container px-4 md:px-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter mb-6">Let's Work Together</h2>
-            <p className="max-w-[600px] text-accent-foreground/90 md:text-xl mx-auto mb-8">
-              Interested in collaborating or discussing a project? Feel free to reach out.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
-                 <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
-              </a>
-              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button outline border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
-                <Mail className="mr-2 h-4 w-4" /> Email Me
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* Contact Section - Updated Styling */}
+         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
+           <div className="container px-4 md:px-6 mx-auto max-w-screen-lg"> {/* Constrain width */}
+             <div className="contact-card relative overflow-hidden rounded-lg p-8 md:p-12 lg:p-16 border border-transparent group"> {/* Added group class */}
+               {/* Hover Glow Effect */}
+               <div className="absolute inset-0 contact-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+               {/* Content */}
+               <div className="relative z-10 text-center">
+                 <h2 className="text-3xl font-bold tracking-tighter mb-6 text-foreground">Let's Work Together</h2>
+                 <p className="max-w-[600px] text-foreground/80 md:text-xl mx-auto mb-8">
+                   Interested in collaborating or discussing a project? Feel free to reach out.
+                 </p>
+                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                   <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+                     <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
+                   </a>
+                   <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button outline border-foreground/30 text-foreground hover:bg-foreground/10 hover:text-foreground")}>
+                     <Mail className="mr-2 h-4 w-4" /> Email Me
+                   </a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </section>
+
+
       </main>
 
       <footer className="py-6 border-t bg-background">
@@ -488,7 +499,3 @@ function ExperienceItem({ role, company, duration, points }: ExperienceItemProps
     </div>
   );
 }
-
-// No changes below this line were intended.
-// The parsing error likely happened above.
-// Ensure no stray characters like ``` exist outside CDATA blocks or comments.

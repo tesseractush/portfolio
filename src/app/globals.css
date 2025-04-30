@@ -190,39 +190,40 @@
 
 /* Glassmorphism Card Style */
 .glassmorphism-card {
-  background: rgba(0, 154, 255, 0.15); /* Slightly more subtle blue */
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.1 ); /* More subtle shadow */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba( 0, 154, 255, 0.25 ); /* Updated */
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); /* Updated */
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.1 ); /* Even more subtle border */
-  @apply border-border;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); /* Updated */
+  @apply border-border; /* Keep shadcn border compatibility */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .glassmorphism-card:hover {
-   box-shadow: 0 12px 40px 0 rgba( 31, 38, 135, 0.15 ); /* Slightly enhance shadow on hover */
+   box-shadow: 0 12px 40px 0 rgba( 31, 38, 135, 0.45 ); /* Slightly enhance shadow on hover */
 }
 
 .glassmorphism-card:active {
    transform: scale(0.98);
-   box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.1 ); /* Reduce shadow on click */
+   box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.2 ); /* Reduce shadow on click */
 }
 
 /* Adjust glassmorphism for dark theme */
 .dark .glassmorphism-card {
-   background: rgba(0, 154, 255, 0.1); /* Even more subtle */
-   border: 1px solid rgba(255, 255, 255, 0.05); /* Fainter border */
-   box-shadow: 0 8px 32px 0 rgba( 0, 154, 255, 0.15 ); /* Blueish shadow */
+   background: rgba(0, 154, 255, 0.15); /* Dark theme specific adjustment */
+   border: 1px solid rgba(255, 255, 255, 0.1); /* Fainter border */
+   box-shadow: 0 8px 32px 0 rgba(0, 154, 255, 0.25); /* Blueish shadow */
 }
 
 .dark .glassmorphism-card:hover {
-   box-shadow: 0 12px 40px 0 rgba(0, 154, 255, 0.2);
+   box-shadow: 0 12px 40px 0 rgba(0, 154, 255, 0.35);
 }
 
 .dark .glassmorphism-card:active {
-   box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.1);
+   box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.15);
 }
+
 
 /* Adjustments for kbc-button used for tech stack items */
 .kbc-button.text-xs {
@@ -301,3 +302,70 @@ header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+
+/* Contact Card Styling */
+.contact-card {
+    /* Apply glassmorphism styles */
+    background: rgba( 0, 154, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px; /* from glassmorphism */
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* Ensure text color contrasts well */
+    color: hsl(var(--foreground));
+    position: relative; /* Needed for pseudo-element */
+    overflow: hidden; /* Keep glow contained */
+}
+.dark .contact-card {
+    /* Dark theme specific adjustments */
+    background: rgba(0, 154, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 154, 255, 0.25);
+}
+
+/* Contact Card Hover Glow */
+.contact-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    hsl(var(--accent) / 0.3), /* Use accent color for glow */
+    transparent 40% /* Adjust spread */
+  );
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  z-index: 0; /* Ensure glow is behind content */
+}
+
+.contact-card:hover .contact-glow {
+  opacity: 1;
+}
+
+/* Ensure contact card content is above the glow */
+.contact-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Override default button styles within the contact card if needed */
+.contact-card .kbc-button.outline {
+    border-color: hsl(var(--foreground) / 0.5); /* Adjust outline button border */
+    color: hsl(var(--foreground));
+}
+.contact-card .kbc-button.outline:hover {
+    background-color: hsl(var(--foreground) / 0.1);
+    border-color: hsl(var(--foreground) / 0.7);
+}
+
+.dark .contact-card .kbc-button.outline {
+    border-color: hsl(var(--foreground) / 0.5); /* Dark theme outline */
+     color: hsl(var(--foreground));
+}
+.dark .contact-card .kbc-button.outline:hover {
+    background-color: hsl(var(--foreground) / 0.1);
+     border-color: hsl(var(--foreground) / 0.7);
+}
+
+/* JavaScript will update --glow-x and --glow-y */
