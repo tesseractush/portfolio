@@ -1,13 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image'; // Import next/image
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, SquareCode, UserCheck, Calendar } from 'lucide-react'; // Changed CodeSquare to SquareCode
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, SquareCode, UserCheck, Calendar, MessageSquare } from 'lucide-react'; // Added MessageSquare
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
 
 export default function Home() {
   const GITHUB_BASE_URL = "https://github.com/tesseractush/";
@@ -20,6 +24,19 @@ export default function Home() {
     "TaskMaster – Collaborative Task Tracking": GITHUB_BASE_URL + "taskmaster", // Example link
     "default": GITHUB_BASE_URL, // Default link if specific repo not found
   };
+
+  const skills = [
+    // Backend
+    "Java", "Spring Boot", "MySQL", "REST", "Microservices", "Kubernetes", "AWS", "JPA", "Thymeleaf", "Spring Security",
+    // AI Automation
+    "Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems", "FastAPI", "Agent Orchestration", "React", "PostgreSQL", "Tailwind", "OAuth", "VPS",
+    // Data Analytics
+    "Metrics-driven decision-making", "Root-cause analysis", "Performance Optimization",
+    // Specific Project Skills
+    "Thymeleaf/React", // From TaskMaster
+  ];
+  // Remove duplicates and sort
+  const uniqueSkills = Array.from(new Set(skills)).sort();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -34,11 +51,10 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero Section */}
         <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
-          {/* Background Elements (Optional, can be enhanced) */}
           <div className="absolute inset-0 overflow-hidden -z-10">
-            {/* You can add more sophisticated background elements here if needed */}
+             {/* Dotted background is applied globally via globals.css */}
           </div>
-          <div className="container px-4 md:px-6 text-center relative"> {/* Added relative positioning */}
+          <div className="container px-4 md:px-6 text-center relative">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70 pb-2">
               Hi, I’m Mrityunjay Srivastava
             </h1>
@@ -52,134 +68,144 @@ export default function Home() {
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "kbc-button")}>
+              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "kbc-button outline")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
             </div>
           </div>
         </section>
 
-        {/* About Me Section - Updated Structure */}
+        {/* About Me Section */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-10 lg:grid-cols-3">
-                {/* Left Column: Photo, Bio, Interests, Social Links */}
-                <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-                     {/* Profile Picture */}
-                    <Avatar className="w-32 h-32 mb-6 border-4 border-primary/20 shadow-lg">
-                         <AvatarImage src="https://picsum.photos/200" alt="Mrityunjay Srivastava" />
-                         <AvatarFallback>MS</AvatarFallback>
-                    </Avatar>
-
-                     {/* Name & Title (Optional, already in Hero) */}
-                     {/* <h2 className="text-2xl font-bold mb-1">Mrityunjay Srivastava</h2> */}
-                     {/* <p className="text-lg text-muted-foreground mb-4">Full Stack & AI Engineer</p> */}
-
-                     {/* Bio/Intro */}
-                     <h3 className="text-xl font-semibold mb-2">About Me</h3>
-                     <p className="text-muted-foreground mb-6">
-                         With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
-                     </p>
-
-                     {/* Interests */}
-                     <h4 className="text-lg font-semibold mb-2">Interests</h4>
-                     <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start mb-6">
-                         <span className="flex items-center gap-1.5 text-muted-foreground">
-                             <Mountain className="h-4 w-4" /> Mountaineering
-                         </span>
-                         <span className="flex items-center gap-1.5 text-muted-foreground">
-                             <Palette className="h-4 w-4" /> Digital Art
-                         </span>
-                         <span className="flex items-center gap-1.5 text-muted-foreground">
-                             <BookOpen className="h-4 w-4" /> Reading
-                         </span>
+          <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+             <div className="flex flex-col items-center"> {/* Center the content */}
+                 <div className="w-full max-w-xl bg-card rounded-lg shadow-lg overflow-hidden border border-border">
+                     {/* Cover Image Placeholder */}
+                    <div className="h-48 bg-muted relative overflow-hidden">
+                         <Image
+                             src="https://picsum.photos/seed/cover/800/200"
+                             alt="Profile cover"
+                             layout="fill"
+                             objectFit="cover"
+                             priority
+                         />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                      </div>
 
-                    {/* Social Media Links */}
-                    <h4 className="text-lg font-semibold mb-2">Connect</h4>
-                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                        <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="GitHub">
-                            <Github className="h-6 w-6" />
-                            <span className="sr-only">GitHub</span>
-                        </Link>
-                        <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
-                            <Linkedin className="h-6 w-6" />
-                            <span className="sr-only">LinkedIn</span>
-                        </Link>
-                        <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" title="Email">
-                            <Mail className="h-6 w-6" />
-                            <span className="sr-only">Email</span>
-                        </a>
-                        <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
-                            <Twitter className="h-6 w-6" />
-                            <span className="sr-only">Twitter</span>
-                        </Link>
-                         <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
-                             <Instagram className="h-6 w-6" />
-                             <span className="sr-only">Instagram</span>
-                         </Link>
-                        <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
-                            <SquareCode className="h-6 w-6" /> {/* Using SquareCode for Leetcode */}
-                            <span className="sr-only">LeetCode</span>
-                        </Link>
+                     {/* Profile Content */}
+                     <div className="p-8 flex flex-col items-center -mt-16">
+                         {/* Avatar */}
+                         <Avatar className="w-32 h-32 border-4 border-background shadow-lg">
+                             <AvatarImage src="https://picsum.photos/seed/avatar/200" alt="Mrityunjay Srivastava" />
+                             <AvatarFallback>MS</AvatarFallback>
+                         </Avatar>
+
+                         {/* Name & Title */}
+                         <h1 className="text-2xl font-bold mt-4">Mrityunjay Srivastava</h1>
+                         <p className="text-muted-foreground">Full Stack Developer & AI Automation Engineer</p>
+
+                         {/* Bio/Intro */}
+                          <p className="text-center text-muted-foreground mt-4 text-sm">
+                              With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
+                          </p>
+
+                         {/* Personal Interests */}
+                         <div className="mt-6 w-full">
+                             <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Interests</h4>
+                             <div className="flex flex-wrap gap-2 justify-center">
+                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                                     <Mountain className="h-3 w-3" /> Mountaineering
+                                 </Badge>
+                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                                     <Palette className="h-3 w-3" /> Digital Art
+                                 </Badge>
+                                 <Badge variant="secondary" className="flex items-center gap-1.5 cursor-default">
+                                     <BookOpen className="h-3 w-3" /> Reading
+                                 </Badge>
+                             </div>
+                         </div>
+
+                         {/* Connect Links */}
+                         <div className="mt-6 w-full">
+                            <h4 className="text-sm font-semibold mb-2 text-muted-foreground text-center">Connect</h4>
+                             <div className="flex flex-wrap gap-4 justify-center">
+                                 <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="GitHub">
+                                     <Github className="h-5 w-5" />
+                                     <span className="sr-only">GitHub</span>
+                                 </Link>
+                                 <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
+                                     <Linkedin className="h-5 w-5" />
+                                     <span className="sr-only">LinkedIn</span>
+                                 </Link>
+                                 <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" title="Email">
+                                     <Mail className="h-5 w-5" />
+                                     <span className="sr-only">Email</span>
+                                 </a>
+                                 <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
+                                     <Twitter className="h-5 w-5" />
+                                     <span className="sr-only">Twitter</span>
+                                 </Link>
+                                 <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
+                                     <Instagram className="h-5 w-5" />
+                                     <span className="sr-only">Instagram</span>
+                                 </Link>
+                                 <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
+                                     <SquareCode className="h-5 w-5" />
+                                     <span className="sr-only">LeetCode</span>
+                                 </Link>
+                             </div>
+                         </div>
                      </div>
                  </div>
-
-                 {/* Right Column: Core Strengths */}
-                 <div className="lg:col-span-2 space-y-8">
-                   <h3 className="text-2xl font-bold text-center lg:text-left">Core Strengths</h3>
-                     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
-                         <Card className="glassmorphism-card">
-                           <CardHeader>
-                             <CardTitle className="flex items-center gap-2"><Settings className="h-5 w-5 text-foreground" /> Backend Development</CardTitle>
-                           </CardHeader>
-                           <CardContent>
-                             <p className="text-card-foreground/80 mb-4">Java, Spring Boot, MySQL, REST APIs, Microservices, Kubernetes, AWS.</p>
-                              {/* Skills as kbc-buttons */}
-                               <div className="flex flex-wrap gap-1">
-                                  {["Java", "Spring Boot", "MySQL", "REST", "Microservices", "Kubernetes", "AWS", "JPA", "Thymeleaf", "Spring Security"].map((skill, index) => (
-                                      <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
-                                          {skill}
-                                      </span>
-                                  ))}
-                              </div>
-                           </CardContent>
-                         </Card>
-                         <Card className="glassmorphism-card">
-                           <CardHeader>
-                             <CardTitle className="flex items-center gap-2"><BrainCircuit className="h-5 w-5 text-foreground" /> AI Automation</CardTitle>
-                           </CardHeader>
-                           <CardContent>
-                             <p className="text-card-foreground/80 mb-4">Langchain, Langchain4j, n8n, LLM Agents, Multi-Agent Systems, FastAPI, Agent Orchestration.</p>
-                             {/* Skills as kbc-buttons */}
-                             <div className="flex flex-wrap gap-1">
-                                {["Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems", "FastAPI", "Agent Orchestration", "React", "PostgreSQL", "Tailwind", "OAuth", "VPS"].map((skill, index) => (
-                                    <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                           </CardContent>
-                         </Card>
-                         <Card className="glassmorphism-card col-span-1 md:col-span-2">
-                           <CardHeader>
-                             <CardTitle className="flex items-center gap-2"><BarChart className="h-5 w-5 text-foreground" /> Data Analytics</CardTitle>
-                           </CardHeader>
-                           <CardContent>
-                             <p className="text-card-foreground/80">Metrics-driven decision-making, Root-cause analysis, Performance Optimization.</p>
-                             {/* Add relevant skills if any */}
-                              {/* <div className="flex flex-wrap gap-1 mt-4">
-                                  {["SQL", "Python", "Pandas"].map((skill, index) => (
-                                      <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
-                                          {skill}
-                                      </span>
-                                  ))}
-                              </div> */}
-                           </CardContent>
-                         </Card>
-                     </div>
-                   </div>
              </div>
+          </div>
+         </section>
+
+        <Separator />
+
+        {/* Core Strengths Section */}
+        <section id="strengths" className="w-full py-12 md:py-24 lg:py-32">
+           <div className="container px-4 md:px-6">
+             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Core Strengths & Skills</h2>
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
+                 {/* Strength Cards */}
+                 <Card className="glassmorphism-card lg:col-span-1">
+                     <CardHeader>
+                         <CardTitle className="flex items-center gap-2"><Settings className="h-5 w-5 text-card-foreground" /> Backend Development</CardTitle>
+                     </CardHeader>
+                     <CardContent>
+                         <p className="text-card-foreground/80">Building robust, scalable, and maintainable server-side applications and APIs.</p>
+                     </CardContent>
+                 </Card>
+                 <Card className="glassmorphism-card lg:col-span-1">
+                     <CardHeader>
+                         <CardTitle className="flex items-center gap-2"><BrainCircuit className="h-5 w-5 text-card-foreground" /> AI Automation</CardTitle>
+                     </CardHeader>
+                     <CardContent>
+                         <p className="text-card-foreground/80">Leveraging Large Language Models and automation tools to create intelligent agents and streamline workflows.</p>
+                     </CardContent>
+                 </Card>
+                 <Card className="glassmorphism-card lg:col-span-1">
+                     <CardHeader>
+                         <CardTitle className="flex items-center gap-2"><BarChart className="h-5 w-5 text-card-foreground" /> Data Analytics</CardTitle>
+                     </CardHeader>
+                     <CardContent>
+                         <p className="text-card-foreground/80">Utilizing data analysis techniques for metrics-driven decision-making and performance optimization.</p>
+                     </CardContent>
+                 </Card>
+              </div>
+
+             {/* Skills Section */}
+             <div className="max-w-5xl mx-auto mt-10 text-center">
+                <h3 className="text-2xl font-semibold tracking-tight mb-6">Technical Skills</h3>
+                <div className="flex flex-wrap justify-center gap-2">
+                   {uniqueSkills.map((skill, index) => (
+                     <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal cursor-default">
+                       {skill}
+                     </span>
+                   ))}
+                </div>
+              </div>
            </div>
          </section>
 
@@ -307,7 +333,7 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
                <Card className="glassmorphism-card">
                  <CardHeader>
-                   <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-foreground" /> B.Tech Computer Science & Engineering</CardTitle>
+                   <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-card-foreground" /> B.Tech Computer Science & Engineering</CardTitle>
                  </CardHeader>
                  <CardContent>
                    <p className="text-card-foreground/80">Uttarakhand Technical University, 2021</p>
@@ -315,7 +341,7 @@ export default function Home() {
                </Card>
                <Card className="glassmorphism-card">
                  <CardHeader>
-                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-foreground" /> Generative AI Nanodegree</CardTitle>
+                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Generative AI Nanodegree</CardTitle>
                  </CardHeader>
                  <CardContent>
                    <p className="text-card-foreground/80">Udacity Scholarship (Completed 2024)</p>
@@ -345,14 +371,17 @@ export default function Home() {
                   <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
                    <p className="text-muted-foreground mb-2">Sharing knowledge via n8n workflows & LangChain discussions.</p>
                    <p className="text-muted-foreground mb-4">Mentoring peers on Udacity forums.</p>
-                   <div className="flex gap-2"> {/* Container for buttons */}
+                   <div className="flex flex-col sm:flex-row gap-2"> {/* Container for buttons */}
                         <a href="https://community.n8n.io/u/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
                            <UserCheck className="mr-2 h-4 w-4" /> n8n Profile
                        </a>
+                       <a href="https://discussion.langchain.com/" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
+                           <MessageSquare className="mr-2 h-4 w-4" /> LangChain Discussions
+                       </a>
                        {/* Add another community link/button if needed */}
-                       {/* <a href="https://community.example.com/your-profile" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
-                           <MessageSquare className="mr-2 h-4 w-4" /> Forum Profile
-                       </a> */}
+                       <a href="https://udacity.com/" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}> {/* Example Udacity Link */}
+                            <GraduationCap className="mr-2 h-4 w-4" /> Udacity Profile {/* Use appropriate icon */}
+                       </a>
                    </div>
                  </div>
              </div>
@@ -372,7 +401,7 @@ export default function Home() {
               <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
                  <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
               </a>
-              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
+              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button outline border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
                 <Mail className="mr-2 h-4 w-4" /> Email Me
               </a>
             </div>
@@ -411,10 +440,10 @@ function ProjectCard({ title, role, techStack, description, highlights, classNam
       <CardHeader>
         <CardTitle className="text-card-foreground">{title}</CardTitle>
         <CardDescription className="text-card-foreground/70">{role}</CardDescription>
-        <div className="pt-2 flex flex-wrap gap-1">
-           <strong className="text-sm text-card-foreground/80 mr-1 self-center">Tech:</strong>
+         <div className="pt-1 flex flex-wrap gap-1"> {/* Adjusted padding and gap */}
+           <strong className="text-sm text-card-foreground/60 mr-1 self-center">Tech:</strong> {/* Adjusted text color and added self-center */}
            {techStack.map((tech, index) => (
-             <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal"> {/* Adjusted font weight */}
+             <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal cursor-default"> {/* Added cursor-default */}
                {tech}
              </span>
            ))}
@@ -459,3 +488,7 @@ function ExperienceItem({ role, company, duration, points }: ExperienceItemProps
     </div>
   );
 }
+
+// No changes below this line were intended.
+// The parsing error likely happened above.
+// Ensure no stray characters like ``` exist outside CDATA blocks or comments.
