@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Import next/image
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare, UserCheck, Calendar } from 'lucide-react'; // Added Calendar
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, SquareCode, UserCheck, Calendar } from 'lucide-react'; // Changed CodeSquare to SquareCode
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
@@ -21,8 +22,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen"> {/* Removed font-sans class */}
-      <header className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+    <div className="flex flex-col min-h-screen">
+      <header className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <Logo className="h-8 w-8" />
           Mrityunjay Srivastava
@@ -32,8 +33,12 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6 text-center">
+        <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
+          {/* Background Elements (Optional, can be enhanced) */}
+          <div className="absolute inset-0 overflow-hidden -z-10">
+            {/* You can add more sophisticated background elements here if needed */}
+          </div>
+          <div className="container px-4 md:px-6 text-center relative"> {/* Added relative positioning */}
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70 pb-2">
               Hi, I’m Mrityunjay Srivastava
             </h1>
@@ -44,11 +49,9 @@ export default function Home() {
               Crafting intelligent solutions and robust backends to drive innovation and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* View My Work button uses keyboard css */}
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              {/* Download Resume button uses keyboard css outline styling */}
               <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "kbc-button")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
@@ -56,86 +59,129 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About Me Section */}
+        {/* About Me Section - Updated Structure */}
         <section id="about" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 grid gap-10 lg:grid-cols-3">
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <Avatar className="w-32 h-32 mb-4 border-4 border-primary/20">
-                {/* Replace with actual photo URL */}
-                <AvatarImage src="https://picsum.photos/200" alt="Mrityunjay Srivastava" />
-                <AvatarFallback>MS</AvatarFallback>
-              </Avatar>
-              <h3 className="text-2xl font-bold mb-2">About Me</h3>
-              <p className="text-muted-foreground mb-4">
-                With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
-              </p>
-              <div className="flex gap-2 justify-center lg:justify-start mb-4">
-                <Mountain className="h-5 w-5 text-muted-foreground" title="Mountaineering" />
-                <Palette className="h-5 w-5 text-muted-foreground" title="Digital Art" />
-                <BookOpen className="h-5 w-5 text-muted-foreground" title="Reading" />
-              </div>
-               {/* Social Media Links - Moved below bio */}
-               <div className="flex gap-4 justify-center lg:justify-start mt-4">
-                  <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    <Github className="h-6 w-6" />
-                    <span className="sr-only">GitHub</span>
-                  </Link>
-                  <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    <Linkedin className="h-6 w-6" />
-                     <span className="sr-only">LinkedIn</span>
-                  </Link>
-                  <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    <Mail className="h-6 w-6" />
-                    <span className="sr-only">Email</span>
-                  </a>
-                   <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    <Twitter className="h-6 w-6" />
-                    <span className="sr-only">Twitter</span>
-                  </Link>
-                  <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"> {/* Add your instagram link */}
-                    <Instagram className="h-6 w-6" />
-                     <span className="sr-only">Instagram</span>
-                  </Link>
-                   <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"> {/* Add your leetcode link */}
-                    <CodeSquare className="h-6 w-6" /> {/* Using CodeSquare for Leetcode */}
-                     <span className="sr-only">LeetCode</span>
-                  </Link>
-                </div>
-            </div>
-            <div className="lg:col-span-2 space-y-8">
-              <h3 className="text-2xl font-bold text-center lg:text-left">Core Strengths</h3>
-              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Applied glassmorphism-card class */}
-                <Card className="glassmorphism-card">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Settings className="h-5 w-5 text-foreground" /> Backend Development</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-card-foreground/80">Java, Spring Boot, MySQL, REST APIs, Microservices, Kubernetes, AWS.</p>
-                  </CardContent>
-                </Card>
-                 {/* Applied glassmorphism-card class */}
-                 <Card className="glassmorphism-card">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><BrainCircuit className="h-5 w-5 text-foreground" /> AI Automation</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-card-foreground/80">Langchain, Langchain4j, n8n, LLM Agents, Multi-Agent Systems, FastAPI, Agent Orchestration.</p>
-                  </CardContent>
-                </Card>
-                 {/* Applied glassmorphism-card class */}
-                 <Card className="glassmorphism-card col-span-1 md:col-span-2"> {/* Span full width on small, half on medium+ */}
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><BarChart className="h-5 w-5 text-foreground" /> Data Analytics</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-card-foreground/80">Metrics-driven decision-making, Root-cause analysis, Performance Optimization.</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-10 lg:grid-cols-3">
+                {/* Left Column: Photo, Bio, Interests, Social Links */}
+                <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                     {/* Profile Picture */}
+                    <Avatar className="w-32 h-32 mb-6 border-4 border-primary/20 shadow-lg">
+                         <AvatarImage src="https://picsum.photos/200" alt="Mrityunjay Srivastava" />
+                         <AvatarFallback>MS</AvatarFallback>
+                    </Avatar>
+
+                     {/* Name & Title (Optional, already in Hero) */}
+                     {/* <h2 className="text-2xl font-bold mb-1">Mrityunjay Srivastava</h2> */}
+                     {/* <p className="text-lg text-muted-foreground mb-4">Full Stack & AI Engineer</p> */}
+
+                     {/* Bio/Intro */}
+                     <h3 className="text-xl font-semibold mb-2">About Me</h3>
+                     <p className="text-muted-foreground mb-6">
+                         With 3 years of experience in Java/Spring Boot, I transitioned into the exciting field of Generative AI in 2025. I'm passionate about building scalable systems and leveraging AI to automate complex processes.
+                     </p>
+
+                     {/* Interests */}
+                     <h4 className="text-lg font-semibold mb-2">Interests</h4>
+                     <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start mb-6">
+                         <span className="flex items-center gap-1.5 text-muted-foreground">
+                             <Mountain className="h-4 w-4" /> Mountaineering
+                         </span>
+                         <span className="flex items-center gap-1.5 text-muted-foreground">
+                             <Palette className="h-4 w-4" /> Digital Art
+                         </span>
+                         <span className="flex items-center gap-1.5 text-muted-foreground">
+                             <BookOpen className="h-4 w-4" /> Reading
+                         </span>
+                     </div>
+
+                    {/* Social Media Links */}
+                    <h4 className="text-lg font-semibold mb-2">Connect</h4>
+                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="GitHub">
+                            <Github className="h-6 w-6" />
+                            <span className="sr-only">GitHub</span>
+                        </Link>
+                        <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
+                            <Linkedin className="h-6 w-6" />
+                            <span className="sr-only">LinkedIn</span>
+                        </Link>
+                        <a href="mailto:tesseractush@gmail.com" className="text-muted-foreground hover:text-primary transition-colors" title="Email">
+                            <Mail className="h-6 w-6" />
+                            <span className="sr-only">Email</span>
+                        </a>
+                        <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
+                            <Twitter className="h-6 w-6" />
+                            <span className="sr-only">Twitter</span>
+                        </Link>
+                         <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
+                             <Instagram className="h-6 w-6" />
+                             <span className="sr-only">Instagram</span>
+                         </Link>
+                        <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
+                            <SquareCode className="h-6 w-6" /> {/* Using SquareCode for Leetcode */}
+                            <span className="sr-only">LeetCode</span>
+                        </Link>
+                     </div>
+                 </div>
+
+                 {/* Right Column: Core Strengths */}
+                 <div className="lg:col-span-2 space-y-8">
+                   <h3 className="text-2xl font-bold text-center lg:text-left">Core Strengths</h3>
+                     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+                         <Card className="glassmorphism-card">
+                           <CardHeader>
+                             <CardTitle className="flex items-center gap-2"><Settings className="h-5 w-5 text-foreground" /> Backend Development</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                             <p className="text-card-foreground/80 mb-4">Java, Spring Boot, MySQL, REST APIs, Microservices, Kubernetes, AWS.</p>
+                              {/* Skills as kbc-buttons */}
+                               <div className="flex flex-wrap gap-1">
+                                  {["Java", "Spring Boot", "MySQL", "REST", "Microservices", "Kubernetes", "AWS", "JPA", "Thymeleaf", "Spring Security"].map((skill, index) => (
+                                      <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
+                                          {skill}
+                                      </span>
+                                  ))}
+                              </div>
+                           </CardContent>
+                         </Card>
+                         <Card className="glassmorphism-card">
+                           <CardHeader>
+                             <CardTitle className="flex items-center gap-2"><BrainCircuit className="h-5 w-5 text-foreground" /> AI Automation</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                             <p className="text-card-foreground/80 mb-4">Langchain, Langchain4j, n8n, LLM Agents, Multi-Agent Systems, FastAPI, Agent Orchestration.</p>
+                             {/* Skills as kbc-buttons */}
+                             <div className="flex flex-wrap gap-1">
+                                {["Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems", "FastAPI", "Agent Orchestration", "React", "PostgreSQL", "Tailwind", "OAuth", "VPS"].map((skill, index) => (
+                                    <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                           </CardContent>
+                         </Card>
+                         <Card className="glassmorphism-card col-span-1 md:col-span-2">
+                           <CardHeader>
+                             <CardTitle className="flex items-center gap-2"><BarChart className="h-5 w-5 text-foreground" /> Data Analytics</CardTitle>
+                           </CardHeader>
+                           <CardContent>
+                             <p className="text-card-foreground/80">Metrics-driven decision-making, Root-cause analysis, Performance Optimization.</p>
+                             {/* Add relevant skills if any */}
+                              {/* <div className="flex flex-wrap gap-1 mt-4">
+                                  {["SQL", "Python", "Pandas"].map((skill, index) => (
+                                      <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal">
+                                          {skill}
+                                      </span>
+                                  ))}
+                              </div> */}
+                           </CardContent>
+                         </Card>
+                     </div>
+                   </div>
+             </div>
+           </div>
+         </section>
 
         <Separator />
 
@@ -259,7 +305,6 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Education & Certifications</h2>
             <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
-                {/* Applied glassmorphism-card class and updated Education Details */}
                <Card className="glassmorphism-card">
                  <CardHeader>
                    <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-foreground" /> B.Tech Computer Science & Engineering</CardTitle>
@@ -268,7 +313,6 @@ export default function Home() {
                    <p className="text-card-foreground/80">Uttarakhand Technical University, 2021</p>
                  </CardContent>
                </Card>
-               {/* Applied glassmorphism-card class */}
                <Card className="glassmorphism-card">
                  <CardHeader>
                    <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-foreground" /> Generative AI Nanodegree</CardTitle>
@@ -291,8 +335,7 @@ export default function Home() {
                 <div className="flex flex-col items-center">
                   <Code className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">GitHub Contributions</h3>
-                  <p className="text-muted-foreground mb-2">Active contributor to AI and backend projects.</p>
-                   {/* Link uses kbc-button */}
+                  <p className="text-muted-foreground mb-4">Active contributor to AI and backend projects.</p>
                    <a href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
                        <Github className="mr-2 h-4 w-4" /> View Repositories
                    </a>
@@ -302,10 +345,15 @@ export default function Home() {
                   <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
                    <p className="text-muted-foreground mb-2">Sharing knowledge via n8n workflows & LangChain discussions.</p>
                    <p className="text-muted-foreground mb-4">Mentoring peers on Udacity forums.</p>
-                    {/* New community profile button */}
-                    <a href="https://community.n8n.io/u/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
-                       <UserCheck className="mr-2 h-4 w-4" /> View Community Profile
-                   </a>
+                   <div className="flex gap-2"> {/* Container for buttons */}
+                        <a href="https://community.n8n.io/u/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
+                           <UserCheck className="mr-2 h-4 w-4" /> n8n Profile
+                       </a>
+                       {/* Add another community link/button if needed */}
+                       {/* <a href="https://community.example.com/your-profile" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
+                           <MessageSquare className="mr-2 h-4 w-4" /> Forum Profile
+                       </a> */}
+                   </div>
                  </div>
              </div>
            </div>
@@ -321,11 +369,9 @@ export default function Home() {
               Interested in collaborating or discussing a project? Feel free to reach out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               {/* Schedule a Call button uses keyboard css */}
               <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
-                 <Calendar className="mr-2 h-4 w-4" /> Schedule a Call {/* Added Calendar Icon */}
+                 <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
               </a>
-              {/* Email Me button uses keyboard css with custom styling */}
               <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
                 <Mail className="mr-2 h-4 w-4" /> Email Me
               </a>
@@ -337,7 +383,7 @@ export default function Home() {
       <footer className="py-6 border-t bg-background">
         <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Mrityunjay Srivastava. All rights reserved.</p>
-           <div></div> {/* Placeholder for spacing if needed */}
+           <div /> {/* Removed social links from footer */}
         </div>
       </footer>
     </div>
@@ -349,15 +395,13 @@ export default function Home() {
 interface ProjectCardProps {
   title: string;
   role: string;
-  techStack: string[]; // Changed to string array
+  techStack: string[];
   description: string;
   highlights: string[];
-  className?: string; // Added className prop
+  className?: string;
 }
 
-// Make the ProjectCard component accept a className and apply glassmorphism
-// Added group hover and active states for animation
-// Updated tech stack display
+// Updated ProjectCard to apply glassmorphism and tech stack styling
 function ProjectCard({ title, role, techStack, description, highlights, className }: ProjectCardProps) {
   return (
     <Card className={cn(
@@ -365,23 +409,22 @@ function ProjectCard({ title, role, techStack, description, highlights, classNam
         className
      )}>
       <CardHeader>
-        <CardTitle className="text-card-foreground">{title}</CardTitle> {/* Adjusted text color for contrast */}
-        <CardDescription className="text-card-foreground/70">{role}</CardDescription> {/* Adjusted text color */}
-        {/* Updated Tech Stack Display with Keyboard CSS */}
-        <div className="pt-1 flex flex-wrap gap-1">
-           <strong className="text-sm text-card-foreground/60 mr-1">Tech:</strong>
+        <CardTitle className="text-card-foreground">{title}</CardTitle>
+        <CardDescription className="text-card-foreground/70">{role}</CardDescription>
+        <div className="pt-2 flex flex-wrap gap-1">
+           <strong className="text-sm text-card-foreground/80 mr-1 self-center">Tech:</strong>
            {techStack.map((tech, index) => (
-             <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight"> {/* Applied kbc-button with adjustments */}
+             <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight !font-normal"> {/* Adjusted font weight */}
                {tech}
              </span>
            ))}
          </div>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
-        <p className="text-sm mb-4 text-card-foreground/80">{description}</p> {/* Adjusted text color */}
+        <p className="text-sm mb-4 text-card-foreground/80">{description}</p>
         <div>
-          <h4 className="font-semibold mb-1 text-sm text-card-foreground">Highlights:</h4> {/* Adjusted text color */}
-          <ul className="list-disc list-inside text-sm text-card-foreground/70 space-y-1"> {/* Adjusted text color */}
+          <h4 className="font-semibold mb-1 text-sm text-card-foreground">Highlights:</h4>
+          <ul className="list-disc list-inside text-sm text-card-foreground/70 space-y-1">
             {highlights.map((highlight, index) => (
               <li key={index}>{highlight}</li>
             ))}
@@ -400,10 +443,10 @@ interface ExperienceItemProps {
   points: string[];
 }
 
+// Experience Item remains largely the same visually
 function ExperienceItem({ role, company, duration, points }: ExperienceItemProps) {
   return (
     <div className="relative pl-8 border-l-2 border-primary/20">
-        {/* Timeline Dot */}
         <div className="absolute -left-[11px] top-1 w-5 h-5 bg-primary rounded-full border-4 border-background dark:border-black"></div>
         <h3 className="text-xl font-semibold">{role}</h3>
         <p className="text-muted-foreground font-medium">{company}</p>

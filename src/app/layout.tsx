@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google'; // Import Montserrat
+import { IBM_Plex_Sans } from 'next/font/google'; // Import IBM Plex Sans
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from "@/components/ui/toaster";
 
-// Configure Montserrat font
-const montserrat = Montserrat({
+// Configure IBM Plex Sans font
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  variable: '--font-montserrat', // Define CSS variable
+  weight: ['400', '500', '600', '700'], // Include necessary weights
+  variable: '--font-ibm-plex-sans', // Define CSS variable
   display: 'swap', // Improve font loading performance
 });
 
@@ -23,8 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* Apply Montserrat font variable to the body */}
-      <body className={`${montserrat.variable} font-sans antialiased`}>
+      {/* Apply IBM Plex Sans font variable to the body */}
+      <body className={`${ibmPlexSans.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

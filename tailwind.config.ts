@@ -11,7 +11,7 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        sans: ['var(--font-montserrat)', ...fontFamily.sans], // Add Montserrat variable
+        sans: ['var(--font-ibm-plex-sans)', ...fontFamily.sans], // Add IBM Plex Sans variable
       },
   		colors: {
   			background: 'hsl(var(--background))',

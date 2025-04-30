@@ -46,7 +46,7 @@
     --dot-space: 22px;
 
     /* Font variable */
-    --font-sans: var(--font-montserrat), sans-serif; /* Use Montserrat variable */
+    --font-sans: var(--font-ibm-plex-sans), sans-serif; /* Use IBM Plex Sans variable */
   }
   .dark {
     --background: 0 0% 0%; /* Black background */
@@ -89,7 +89,7 @@
     --dot-space: 22px;
 
      /* Font variable - Dark */
-     --font-sans: var(--font-montserrat), sans-serif; /* Use Montserrat variable */
+     --font-sans: var(--font-ibm-plex-sans), sans-serif; /* Use IBM Plex Sans variable */
   }
 }
 
@@ -120,14 +120,14 @@
     padding: 0.5rem 1rem; /* Match button padding */
     border-radius: var(--radius); /* Match button border radius */
     font-weight: 500; /* Match button font weight */
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; /* Add transition */
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease-out; /* Add transition */
     /* Ensure minimum button height/size consistency */
     min-height: 2.5rem; /* Corresponds to h-10 in Tailwind */
     font-size: 0.875rem; /* Corresponds to text-sm */
     line-height: 1.25rem;
     border-width: 1px; /* Add default border width */
     outline: none; /* Remove default outline */
-    box-shadow: none; /* Remove default shadow if any */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
     vertical-align: middle; /* Align vertically if needed */
     white-space: nowrap; /* Prevent text wrapping */
     user-select: none; /* Prevent text selection */
@@ -136,7 +136,7 @@
 /* Override specific properties inherited from .keyboard-container if needed */
 .keyboard-container .kbc-button {
   /* Example: Reset box-shadow if inherited */
-  box-shadow: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border: 1px solid hsl(var(--accent)); /* Ensure border matches base */
 }
 
@@ -146,12 +146,14 @@
     color: hsl(var(--foreground)); /* Use foreground text color */
     background-color: transparent; /* Transparent background */
     border-color: hsl(var(--input)); /* Use input border color */
+    box-shadow: none; /* Remove shadow for outline */
 }
 
 .kbc-button.outline:hover {
     color: hsl(var(--accent-foreground));
     background-color: hsl(var(--accent));
     border-color: hsl(var(--accent));
+     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add shadow back on hover */
 }
 
 .kbc-button:hover,
@@ -160,43 +162,66 @@
   border-color: hsl(var(--accent) / 0.9);
   color: hsl(var(--accent-foreground)); /* Ensure text color remains */
   text-decoration: none; /* Ensure underline doesn't reappear */
-  box-shadow: none; /* Ensure no shadow on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Slightly larger shadow on hover */
 }
+
+/* Active state for click effect */
+.kbc-button:active,
+.keyboard-container .kbc-button:active {
+    transform: scale(0.98); /* Slightly scale down */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Reduce shadow */
+}
+.kbc-button.outline:active {
+    transform: scale(0.98); /* Slightly scale down */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Reduce shadow */
+}
+
+/* Remove border from specific kbc-buttons */
+.kbc-button.no-border {
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important; /* Remove shadow for no-border variant */
+}
+.kbc-button.no-border:hover {
+    background-color: hsl(var(--accent) / 0.1) !important; /* Optional subtle hover */
+    color: hsl(var(--accent)) !important; /* Optional color change on hover */
+}
+
 
 /* Glassmorphism Card Style */
 .glassmorphism-card {
-  background: rgba(0, 154, 255, 0.25); /* Bluish background with transparency */
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Shadow effect */
-  backdrop-filter: blur(4px); /* Blur effect */
-  -webkit-backdrop-filter: blur(4px); /* Blur effect for Safari */
-  border-radius: 10px; /* Rounded corners */
-  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
-  @apply border-border; /* Ensure ShadCN border compatibility */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Add transition for click effect */
+  background: rgba(0, 154, 255, 0.15); /* Slightly more subtle blue */
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.1 ); /* More subtle shadow */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.1 ); /* Even more subtle border */
+  @apply border-border;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .glassmorphism-card:hover {
-   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45); /* Slightly enhance shadow on hover */
+   box-shadow: 0 12px 40px 0 rgba( 31, 38, 135, 0.15 ); /* Slightly enhance shadow on hover */
 }
 
 .glassmorphism-card:active {
-   transform: scale(0.98); /* Scale down slightly on click */
-   box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.3); /* Reduce shadow on click */
+   transform: scale(0.98);
+   box-shadow: 0 4px 16px 0 rgba( 31, 38, 135, 0.1 ); /* Reduce shadow on click */
 }
 
-/* Adjust glassmorphism for dark theme if needed */
+/* Adjust glassmorphism for dark theme */
 .dark .glassmorphism-card {
-   background: rgba(0, 154, 255, 0.15); /* Slightly less intense blue background */
-   border: 1px solid rgba(255, 255, 255, 0.1); /* Even subtler border */
-   box-shadow: 0 8px 32px 0 rgba( 0, 154, 255, 0.2 ); /* Blueish shadow */
+   background: rgba(0, 154, 255, 0.1); /* Even more subtle */
+   border: 1px solid rgba(255, 255, 255, 0.05); /* Fainter border */
+   box-shadow: 0 8px 32px 0 rgba( 0, 154, 255, 0.15 ); /* Blueish shadow */
 }
 
 .dark .glassmorphism-card:hover {
-   box-shadow: 0 12px 40px 0 rgba(0, 154, 255, 0.3); /* Enhance blue shadow on hover */
+   box-shadow: 0 12px 40px 0 rgba(0, 154, 255, 0.2);
 }
 
 .dark .glassmorphism-card:active {
-   box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.15); /* Reduce blue shadow on click */
+   box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.1);
 }
 
 /* Adjustments for kbc-button used for tech stack items */
@@ -225,4 +250,54 @@
 
 .kbc-button.\!leading-tight {
   line-height: 1.25 !important; /* leading-tight */
+}
+
+/* Specific overrides for tech stack buttons to make them less prominent */
+.kbc-button.text-xs {
+    font-weight: 400; /* Make font normal weight */
+    box-shadow: none; /* Remove shadow */
+    background-color: hsl(var(--muted)); /* Use muted background */
+    color: hsl(var(--muted-foreground)); /* Use muted text color */
+    border-color: transparent; /* Remove border */
+}
+
+.dark .kbc-button.text-xs {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+}
+
+.kbc-button.text-xs:hover {
+    background-color: hsl(var(--secondary)); /* Slightly darker muted on hover */
+    color: hsl(var(--secondary-foreground));
+    box-shadow: none; /* Keep shadow removed on hover */
+}
+
+.dark .kbc-button.text-xs:hover {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+}
+
+.kbc-button.text-xs:active {
+    transform: none; /* Remove scale effect */
+    box-shadow: none; /* Keep shadow removed */
+}
+
+/* Ensure card foreground colors have enough contrast */
+.glassmorphism-card .text-card-foreground {
+    color: hsl(var(--card-foreground));
+}
+.glassmorphism-card .text-card-foreground\/80 {
+    color: hsl(var(--card-foreground) / 0.8);
+}
+.glassmorphism-card .text-card-foreground\/70 {
+    color: hsl(var(--card-foreground) / 0.7);
+}
+.glassmorphism-card .text-card-foreground\/60 {
+    color: hsl(var(--card-foreground) / 0.6);
+}
+
+/* Header styling */
+header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
