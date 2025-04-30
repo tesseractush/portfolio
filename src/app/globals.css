@@ -42,6 +42,12 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dotted Background - Light Theme */
+    --dot-bg: hsl(var(--background));
+    --dot-color: hsl(var(--foreground) / 0.1); /* Subtle black dots */
+    --dot-size: 1px;
+    --dot-space: 22px;
   }
   .dark {
     --background: 0 0% 0%; /* Black background */
@@ -76,6 +82,12 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dotted Background - Dark Theme */
+    --dot-bg: hsl(var(--background));
+    --dot-color: hsl(var(--foreground) / 0.1); /* Subtle white dots */
+    --dot-size: 1px;
+    --dot-space: 22px;
   }
 }
 
@@ -85,19 +97,71 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* Apply Dotted Background */
+    background:
+      linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
   }
 }
 
-/* Add this style to customize keyboard css links */
+/* Customize keyboard css links */
 .kbc-button,
 .keyboard-container .kbc-button {
     color: hsl(var(--accent-foreground));
     background-color: hsl(var(--accent));
     border-color: hsl(var(--accent));
+    display: inline-flex; /* Ensure button styles apply correctly to links */
+    align-items: center; /* Align icon and text */
+    justify-content: center; /* Center content */
+    text-decoration: none; /* Remove default link underline */
+    padding: 0.5rem 1rem; /* Match button padding */
+    border-radius: var(--radius); /* Match button border radius */
+    font-weight: 500; /* Match button font weight */
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Add transition */
 }
 
 .kbc-button:hover,
 .keyboard-container .kbc-button:hover {
   background-color: hsl(var(--accent) / 0.9);
   border-color: hsl(var(--accent) / 0.9);
+  color: hsl(var(--accent-foreground)); /* Ensure text color remains */
+  text-decoration: none; /* Ensure underline doesn't reappear */
 }
+
+/* Glassmorphism Card Style */
+.glassmorphism-card {
+  background: rgba(0, 154, 255, 0.25); /* Bluish background with transparency */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Shadow effect */
+  backdrop-filter: blur(4px); /* Blur effect */
+  -webkit-backdrop-filter: blur(4px); /* Blur effect for Safari */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
+  @apply border-border; /* Ensure ShadCN border compatibility */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Add transition for click effect */
+}
+
+.glassmorphism-card:hover {
+   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45); /* Slightly enhance shadow on hover */
+}
+
+.glassmorphism-card:active {
+   transform: scale(0.98); /* Scale down slightly on click */
+   box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.3); /* Reduce shadow on click */
+}
+
+/* Adjust glassmorphism for dark theme if needed */
+.dark .glassmorphism-card {
+   background: rgba(0, 154, 255, 0.15); /* Slightly less intense blue background */
+   border: 1px solid rgba(255, 255, 255, 0.1); /* Even subtler border */
+   box-shadow: 0 8px 32px 0 rgba( 0, 154, 255, 0.2 ); /* Blueish shadow */
+}
+
+.dark .glassmorphism-card:hover {
+   box-shadow: 0 12px 40px 0 rgba(0, 154, 255, 0.3); /* Enhance blue shadow on hover */
+}
+
+.dark .glassmorphism-card:active {
+   box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.15); /* Reduce blue shadow on click */
+}
+
