@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
+import Image from "public";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
