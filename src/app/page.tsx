@@ -48,8 +48,8 @@ export default function Home() {
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              {/* Download Resume button uses default Shadcn outline styling (no keyboard css) */}
-              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+              {/* Download Resume button uses keyboard css outline styling */}
+              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg" }), "kbc-button outline")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
             </div>

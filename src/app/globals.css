@@ -125,14 +125,14 @@
     min-height: 2.5rem; /* Corresponds to h-10 in Tailwind */
     font-size: 0.875rem; /* Corresponds to text-sm */
     line-height: 1.25rem;
+    border-width: 1px; /* Add default border width */
 }
 
-/* Specific styling for outline variant using kbc-button class - NO LONGER APPLIED TO BUTTONS */
+/* Specific styling for outline variant using kbc-button class */
 .kbc-button.outline {
     color: hsl(var(--foreground)); /* Use foreground text color */
     background-color: transparent; /* Transparent background */
     border-color: hsl(var(--input)); /* Use input border color */
-    border-width: 1px;
 }
 
 .kbc-button.outline:hover {
