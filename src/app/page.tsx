@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare } from 'lucide-react'; // Added CodeSquare for Leetcode
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-sans"> {/* Apply font-sans */}
       <header className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <Logo className="h-8 w-8" />
@@ -32,7 +32,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48"> {/* Removed gradient */}
+        <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6 text-center">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70 pb-2">
               Hi, I’m Mrityunjay Srivastava
@@ -44,18 +44,14 @@ export default function Home() {
               Crafting intelligent solutions and robust backends to drive innovation and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="kbc-button">
-                 {/* Apply kbc-button class here */}
-                <Link href="#projects">
-                  View My Work
-                </Link>
-              </Button>
-              {/* Update with actual resume link */}
-              <Button variant="outline" size="lg" asChild>
-                <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className="kbc-button">
-                  <Download className="mr-2 h-4 w-4" /> Download Résumé
-                </a>
-              </Button>
+              {/* View My Work button still uses kbc-button */}
+              <Link href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
+                 View My Work
+              </Link>
+              {/* Download Resume button uses default Shadcn outline styling */}
+              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                <Download className="mr-2 h-4 w-4" /> Download Résumé
+              </a>
             </div>
           </div>
         </section>
@@ -78,7 +74,7 @@ export default function Home() {
                 <Palette className="h-5 w-5 text-muted-foreground" title="Digital Art" />
                 <BookOpen className="h-5 w-5 text-muted-foreground" title="Reading" />
               </div>
-               {/* Social Media Links */}
+               {/* Social Media Links - Moved below bio */}
                <div className="flex gap-4 justify-center lg:justify-start mt-4">
                   <Link href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Github className="h-6 w-6" />
@@ -96,11 +92,11 @@ export default function Home() {
                     <Twitter className="h-6 w-6" />
                     <span className="sr-only">Twitter</span>
                   </Link>
-                  <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"> {/* Add your instagram link */}
                     <Instagram className="h-6 w-6" />
                      <span className="sr-only">Instagram</span>
                   </Link>
-                   <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                   <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"> {/* Add your leetcode link */}
                     <CodeSquare className="h-6 w-6" /> {/* Using CodeSquare for Leetcode */}
                      <span className="sr-only">LeetCode</span>
                   </Link>
@@ -109,6 +105,7 @@ export default function Home() {
             <div className="lg:col-span-2 space-y-8">
               <h3 className="text-2xl font-bold text-center lg:text-left">Core Strengths</h3>
               <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Applied glassmorphism-card class */}
                 <Card className="glassmorphism-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2"><Settings className="h-5 w-5 text-foreground" /> Backend Development</CardTitle>
@@ -117,6 +114,7 @@ export default function Home() {
                     <p className="text-card-foreground/80">Java, Spring Boot, MySQL, REST APIs, Microservices, Kubernetes, AWS.</p>
                   </CardContent>
                 </Card>
+                 {/* Applied glassmorphism-card class */}
                  <Card className="glassmorphism-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2"><BrainCircuit className="h-5 w-5 text-foreground" /> AI Automation</CardTitle>
@@ -125,6 +123,7 @@ export default function Home() {
                     <p className="text-card-foreground/80">Langchain, Langchain4j, n8n, LLM Agents, Multi-Agent Systems, FastAPI, Agent Orchestration.</p>
                   </CardContent>
                 </Card>
+                 {/* Applied glassmorphism-card class */}
                  <Card className="glassmorphism-card col-span-1 md:col-span-2"> {/* Span full width on small, half on medium+ */}
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2"><BarChart className="h-5 w-5 text-foreground" /> Data Analytics</CardTitle>
@@ -141,7 +140,7 @@ export default function Home() {
         <Separator />
 
         {/* Projects Section */}
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32"> {/* Removed background */}
+        <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -256,10 +255,11 @@ export default function Home() {
         <Separator />
 
         {/* Education & Certifications Section */}
-        <section id="education" className="w-full py-12 md:py-24 lg:py-32"> {/* Removed background */}
+        <section id="education" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Education & Certifications</h2>
             <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+                {/* Applied glassmorphism-card class and updated Education Details */}
                <Card className="glassmorphism-card">
                  <CardHeader>
                    <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-foreground" /> B.Tech Computer Science & Engineering</CardTitle>
@@ -268,6 +268,7 @@ export default function Home() {
                    <p className="text-card-foreground/80">Uttarakhand Technical University, 2021</p>
                  </CardContent>
                </Card>
+               {/* Applied glassmorphism-card class */}
                <Card className="glassmorphism-card">
                  <CardHeader>
                    <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-foreground" /> Generative AI Nanodegree</CardTitle>
@@ -291,11 +292,10 @@ export default function Home() {
                   <Code className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">GitHub Contributions</h3>
                   <p className="text-muted-foreground mb-2">Active contributor to AI and backend projects.</p>
-                   <Button variant="link" asChild>
-                     <a href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className="kbc-button">
+                   {/* Link still uses kbc-button */}
+                   <a href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
                        <Github className="mr-2 h-4 w-4" /> View Repositories
-                     </a>
-                   </Button>
+                   </a>
                 </div>
                 <div className="flex flex-col items-center">
                   <Users className="h-10 w-10 mb-2 text-primary" />
@@ -317,26 +317,22 @@ export default function Home() {
               Interested in collaborating or discussing a project? Feel free to reach out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               {/* Replace with your actual Calendly link */}
-              <Button variant="secondary" size="lg" asChild className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className="kbc-button">
-                  Schedule a Call
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground">
-                <a href="mailto:tesseractush@gmail.com" className="kbc-button">
-                  <Mail className="mr-2 h-4 w-4" /> Email Me
-                </a>
-              </Button>
+               {/* Schedule a Call button uses default Shadcn secondary styling */}
+              <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+                Schedule a Call
+              </a>
+              {/* Email Me button uses default Shadcn outline styling specific to this section */}
+              <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
+                <Mail className="mr-2 h-4 w-4" /> Email Me
+              </a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="py-6 border-t bg-background"> {/* Ensure footer has background */}
+      <footer className="py-6 border-t bg-background">
         <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Mrityunjay Srivastava. All rights reserved.</p>
-           {/* Footer links removed as they are moved under bio */}
            <div></div> {/* Placeholder for spacing if needed */}
         </div>
       </footer>
