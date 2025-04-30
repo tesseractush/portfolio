@@ -34,7 +34,7 @@ export default function Home() {
     // Data Analytics
     "Metrics-driven decision-making", "Root-cause analysis", "Performance Optimization",
     // Specific Project Skills derived from Tech Stacks
-    "REST APIs",
+    "REST APIs", "OAuth", "VPS", "JPA", "Thymeleaf", "Spring Security", "Microservices Architecture", "React", "Tailwind",
     // Additional Project Tech
     "Thymeleaf/React",
   ];
@@ -169,7 +169,7 @@ export default function Home() {
 
          {/* Core Strengths Section */}
         <section id="strengths" className="w-full py-12 md:py-24 lg:py-32">
-           <div className="container px-4 md:px-6">
+           <div className="container px-4 md:px-6 mx-auto"> {/* Added mx-auto to center container */}
              <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Core Strengths & Skills</h2>
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
                  {/* Strength Cards */}
@@ -200,7 +200,7 @@ export default function Home() {
               </div>
 
              {/* Skills Section */}
-             <div className="max-w-5xl mx-auto mt-10 text-center">
+             <div className="max-w-5xl mx-auto mt-10 text-center"> {/* Centered */}
                 <h3 className="text-2xl font-semibold tracking-tight mb-6">Technical Skills</h3>
                 <div className="flex flex-wrap justify-center gap-2">
                    {uniqueSkills.map((skill, index) => (
@@ -217,9 +217,9 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto"> {/* Added mx-auto */}
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Projects</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"> {/* Added max-w and mx-auto */}
               {/* Project Cards - Wrapped with Link */}
               <Link href={projectLinks["Processimo – AI Agent Marketplace"] || projectLinks["default"]} target="_blank" rel="noopener noreferrer" className="block group">
                 <ProjectCard
@@ -289,7 +289,7 @@ export default function Home() {
 
          {/* Professional Experience Section */}
         <section id="experience" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto"> {/* Added mx-auto */}
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Professional Experience</h2>
             <div className="space-y-8 max-w-3xl mx-auto">
                <ExperienceItem
@@ -332,7 +332,7 @@ export default function Home() {
 
         {/* Education & Certifications Section */}
         <section id="education" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto"> {/* Added mx-auto */}
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Education & Certifications</h2>
             <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
                <Card className="glassmorphism-card">
@@ -359,9 +359,9 @@ export default function Home() {
 
          {/* Open Source & Community Section */}
         <section id="community" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 text-center">
+          <div className="container px-4 md:px-6 text-center mx-auto"> {/* Added mx-auto */}
              <h2 className="text-3xl font-bold tracking-tighter mb-10">Open Source & Community</h2>
-             <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+             <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto"> {/* Added max-w and mx-auto */}
                 <div className="flex flex-col items-center">
                   <Code className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">GitHub Contributions</h3>
@@ -421,9 +421,9 @@ export default function Home() {
       </main>
 
       <footer className="py-6 border-t bg-background">
-        <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
+        <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-center items-center text-sm text-muted-foreground"> {/* Centered content */}
           <p>&copy; {new Date().getFullYear()} Mrityunjay Srivastava. All rights reserved.</p>
-           <div /> {/* Removed social links from footer */}
+          {/* Removed social links from footer as they are in the About section */}
         </div>
       </footer>
     </div>
