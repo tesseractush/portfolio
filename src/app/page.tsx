@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen font-sans"> {/* Apply font-sans */}
+    <div className="flex flex-col min-h-screen"> {/* Removed font-sans class */}
       <header className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <Logo className="h-8 w-8" />
@@ -45,9 +45,9 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {/* View My Work button still uses kbc-button */}
-              <Link href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
+              <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
-              </Link>
+              </a>
               {/* Download Resume button uses default Shadcn outline styling */}
               <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
