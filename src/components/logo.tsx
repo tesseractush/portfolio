@@ -6,8 +6,8 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 // Define the image sources
-const lightLogoSrc = "https://github.com/tesseractush/portfolio/blob/main/public/logo-light.png"; // Replace with actual path if different
-const darkLogoSrc = "https://github.com/tesseractush/portfolio/blob/main/public/logo-dark.png";   // Replace with actual path if different
+const lightLogoSrc = "https://github.com/tesseractush/portfolio/blob/main/public/logo-light.png?raw=true"; // Replace with actual path if different
+const darkLogoSrc = "https://github.com/tesseractush/portfolio/blob/main/public/logo-dark.png?raw=true";   // Replace with actual path if different
 
 export function Logo({ className, ...props }: React.SVGProps<SVGSVGElement> & { className?: string }) {
   const { resolvedTheme } = useTheme();
