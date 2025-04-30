@@ -28,13 +28,13 @@ export default function Home() {
 
   const skills = [
     // Backend
-    "Java", "Spring Boot", "MySQL", "REST", "Microservices", "Kubernetes", "AWS", "JPA", "Thymeleaf", "Spring Security", "PostgreSQL",
+    "Java", "Spring Boot", "MySQL", "REST", "Microservices", "Kubernetes", "AWS", "JPA", "Thymeleaf", "Spring Security", "PostgreSQL", "FastAPI", "Oauth",
     // AI Automation
-    "Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems", "FastAPI", "Agent Orchestration", "React", "Tailwind", "OAuth", "VPS",
+    "Langchain", "Langchain4j", "n8n", "LLM Agents", "Multi-Agent Systems",
     // Data Analytics
     "Metrics-driven decision-making", "Root-cause analysis", "Performance Optimization",
     // Specific Project Skills derived from Tech Stacks
-    "REST APIs", "OAuth", "VPS", "JPA", "Thymeleaf", "Spring Security", "Microservices Architecture", "React", "Tailwind",
+    "System Design", "Low Level Design", "High Level Design", "Microservices Architecture", "Workflow Orchestration", 
     // Additional Project Tech
     "Thymeleaf/React",
   ];
@@ -72,7 +72,7 @@ export default function Home() {
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "kbc-button outline")}>
+              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
             </div>
@@ -87,7 +87,7 @@ export default function Home() {
                  {/* Cover Image Placeholder */}
                  <div className="h-48 bg-muted relative overflow-hidden">
                    <Image
-                     src="https://picsum.photos/seed/cover/800/200"
+                     src="https://github.com/tesseractush/portfolio/blob/main/public/cover.jpeg?raw=true"
                      alt="Profile cover"
                      fill // Use fill instead of layout
                      style={{ objectFit: 'cover' }} // Use style for objectFit
@@ -100,7 +100,7 @@ export default function Home() {
                  <div className="p-8 flex flex-col items-center -mt-16">
                    {/* Avatar */}
                    <Avatar className="w-32 h-32 border-4 border-background shadow-lg">
-                     <AvatarImage src="https://picsum.photos/seed/avatar/200" alt="Mrityunjay Srivastava" />
+                     <AvatarImage src="https://github.com/tesseractush/portfolio/blob/main/public/profile.jpg?raw=true" alt="Mrityunjay Srivastava" />
                      <AvatarFallback>MS</AvatarFallback>
                    </Avatar>
 
@@ -137,7 +137,7 @@ export default function Home() {
                          <Github className="h-5 w-5" />
                          <span className="sr-only">GitHub</span>
                        </Link>
-                       <Link href="https://linkedin.com/in/mrityunjay-srivastava-851197171" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
+                       <Link href="https://linkedin.com/in/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LinkedIn">
                          <Linkedin className="h-5 w-5" />
                          <span className="sr-only">LinkedIn</span>
                        </Link>
@@ -145,15 +145,15 @@ export default function Home() {
                          <Mail className="h-5 w-5" />
                          <span className="sr-only">Email</span>
                        </a>
-                       <Link href="https://x.com/Mrityun60045254" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
+                       <Link href="https://x.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Twitter">
                          <Twitter className="h-5 w-5" />
                          <span className="sr-only">Twitter</span>
                        </Link>
-                       <Link href="https://instagram.com/your-instagram" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
+                       <Link href="https://instagram.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="Instagram"> {/* Add your instagram link */}
                          <Instagram className="h-5 w-5" />
                          <span className="sr-only">Instagram</span>
                        </Link>
-                       <Link href="https://leetcode.com/your-leetcode" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
+                       <Link href="https://leetcode.com/tesseractush" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" title="LeetCode"> {/* Add your leetcode link */}
                          <SquareCode className="h-5 w-5" />
                          <span className="sr-only">LeetCode</span>
                        </Link>
@@ -304,9 +304,9 @@ export default function Home() {
                 ]}
               />
               <ExperienceItem
-                role="Backend Java Developer"
+                role="Associate"
                 company="Cognizant"
-                duration="Jan 2022 – Dec 2024"
+                duration="Dec 2021 – Mar 2025"
                 points={[
                   "Diagnosed and resolved critical production issues in a global application, enhancing performance and stability.",
                   "Developed a Financial Expenditure Management System for real-time tracking and reporting.",
@@ -351,6 +351,15 @@ export default function Home() {
                    <p className="text-card-foreground/80">Udacity Scholarship (Completed 2024)</p>
                  </CardContent>
                </Card>
+                <Card className="glassmorphism-card">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-card-foreground" /> 10+2 </CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <p className="text-card-foreground/80">Saraswati Vidya Mandir Sr. Sec. School</p>
+                 </CardContent>
+               </Card>
+
             </div>
           </div>
         </section>
@@ -367,32 +376,35 @@ export default function Home() {
                   <h3 className="text-xl font-semibold mb-2">GitHub Contributions</h3>
                   <p className="text-muted-foreground mb-4">Active contributor to AI and backend projects.</p>
                    <a href="https://github.com/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
-                       <Github className="mr-2 h-4 w-4" /> View Repositories
+                       <Github className="mr-2 h-4 w-4" /> Github Profile
                    </a>
                 </div>
                 <div className="flex flex-col items-center">
                   <Users className="h-10 w-10 mb-2 text-primary" />
                   <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
                    <p className="text-muted-foreground mb-2">Sharing knowledge via n8n workflows & LangChain discussions.</p>
-                   <p className="text-muted-foreground mb-4">Mentoring peers on Udacity forums.</p>
                    <div className="flex flex-col sm:flex-row gap-2"> {/* Container for buttons */}
                         <a href="https://community.n8n.io/u/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
                            <UserCheck className="mr-2 h-4 w-4" /> n8n Profile
                        </a>
-                       <a href="https://discussion.langchain.com/" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
-                           <MessageSquare className="mr-2 h-4 w-4" /> LangChain Discussions
-                       </a>
-                       {/* Add another community link/button if needed */}
-                       <a href="https://udacity.com/" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}> {/* Example Udacity Link */}
-                            <GraduationCap className="mr-2 h-4 w-4" /> Udacity Profile {/* Use appropriate icon */}
+                   </div>
+                 </div>
+                <div className="flex flex-col items-center">
+                  <Users className="h-10 w-10 mb-2 text-primary" />
+                  <h3 className="text-xl font-semibold mb-2">HuggingFace Contributions</h3>
+                   <p className="text-muted-foreground mb-2">Active Contributor and Learner in world of AI/ML</p>
+                   <div className="flex flex-col sm:flex-row gap-2"> {/* Container for buttons */}
+                        <a href="https://huggingface.co/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "link" }), "kbc-button")}>
+                           <UserCheck className="mr-2 h-4 w-4" /> Huggingface Profile
                        </a>
                    </div>
                  </div>
+
              </div>
            </div>
          </section>
 
-        <Separator />
+        
 
         {/* Contact Section - Updated Styling */}
          <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
@@ -408,7 +420,7 @@ export default function Home() {
                     <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
                       <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
                     </a>
-                    <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button outline border-foreground/30 text-foreground hover:bg-foreground/10 hover:text-foreground")}>
+                    <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button border-foreground/30 text-foreground hover:bg-foreground/10 hover:text-foreground")}>
                       <Mail className="mr-2 h-4 w-4" /> Email Me
                     </a>
                  </div>
