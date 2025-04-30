@@ -126,7 +126,20 @@
     font-size: 0.875rem; /* Corresponds to text-sm */
     line-height: 1.25rem;
     border-width: 1px; /* Add default border width */
+    outline: none; /* Remove default outline */
+    box-shadow: none; /* Remove default shadow if any */
+    vertical-align: middle; /* Align vertically if needed */
+    white-space: nowrap; /* Prevent text wrapping */
+    user-select: none; /* Prevent text selection */
 }
+
+/* Override specific properties inherited from .keyboard-container if needed */
+.keyboard-container .kbc-button {
+  /* Example: Reset box-shadow if inherited */
+  box-shadow: none;
+  border: 1px solid hsl(var(--accent)); /* Ensure border matches base */
+}
+
 
 /* Specific styling for outline variant using kbc-button class */
 .kbc-button.outline {
@@ -147,6 +160,7 @@
   border-color: hsl(var(--accent) / 0.9);
   color: hsl(var(--accent-foreground)); /* Ensure text color remains */
   text-decoration: none; /* Ensure underline doesn't reappear */
+  box-shadow: none; /* Ensure no shadow on hover */
 }
 
 /* Glassmorphism Card Style */
@@ -183,4 +197,32 @@
 
 .dark .glassmorphism-card:active {
    box-shadow: 0 4px 16px 0 rgba(0, 154, 255, 0.15); /* Reduce blue shadow on click */
+}
+
+/* Adjustments for kbc-button used for tech stack items */
+.kbc-button.text-xs {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem;
+}
+
+.kbc-button.px-1\.5 {
+  padding-left: 0.375rem; /* px-1.5 */
+  padding-right: 0.375rem;
+}
+
+.kbc-button.py-0\.5 {
+  padding-top: 0.125rem; /* py-0.5 */
+  padding-bottom: 0.125rem;
+}
+
+.kbc-button.\!min-h-0 {
+  min-height: 0 !important;
+}
+
+.kbc-button.\!h-auto {
+  height: auto !important;
+}
+
+.kbc-button.\!leading-tight {
+  line-height: 1.25 !important; /* leading-tight */
 }

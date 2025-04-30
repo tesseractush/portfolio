@@ -3,7 +3,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare, UserCheck } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Mountain, Palette, BookOpen, Settings, Briefcase, GraduationCap, Code, Users, FileText, BrainCircuit, BarChart, Twitter, Instagram, CodeSquare, UserCheck, Calendar } from 'lucide-react'; // Added Calendar
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
@@ -49,7 +49,7 @@ export default function Home() {
                  View My Work
               </a>
               {/* Download Resume button uses keyboard css outline styling */}
-              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg" }), "kbc-button outline")}>
+              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "kbc-button")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
                 <ProjectCard
                   title="Processimo – AI Agent Marketplace"
                   role="Founder & AI Automation Architect"
-                  techStack="FastAPI, React, n8n, PostgreSQL, Tailwind, OAuth, VPS"
+                  techStack={["FastAPI", "React", "n8n", "PostgreSQL", "Tailwind", "OAuth", "VPS"]}
                   description="Platform for subscribing to and customizing AI agents with an admin dashboard for workflow management, usage tracking, and tiered pricing."
                   highlights={["AI Agent Preview", "Workflow Versioning", "Custom AI Requests", "Secure User Auth"]}
                   className="h-full" // Ensure card fills the link height
@@ -159,7 +159,7 @@ export default function Home() {
                  <ProjectCard
                    title="News Aggregator API (Spring Boot)"
                    role="Backend API Developer"
-                   techStack="Java, Spring Boot, REST, MySQL"
+                   techStack={["Java", "Spring Boot", "REST", "MySQL"]}
                    description="REST API to fetch, filter, and serve news from various sources with features like category filtering, sorting, pagination, and rate-limiting."
                    highlights={["Category Endpoints", "Performance Optimization", "Scalable Design"]}
                    className="h-full"
@@ -169,7 +169,7 @@ export default function Home() {
                 <ProjectCard
                   title="Employee Tracking System"
                   role="Full-Stack Developer"
-                  techStack="Java, Spring Boot, Thymeleaf, MySQL"
+                  techStack={["Java", "Spring Boot", "Thymeleaf", "MySQL"]}
                   description="System for managing employee records, attendance, leave, and project allocation with role-based dashboards and reporting."
                   highlights={["HR Dashboard", "CRUD Operations", "CSV Export", "Role-Based Access"]}
                   className="h-full"
@@ -179,7 +179,7 @@ export default function Home() {
                 <ProjectCard
                   title="Library Management System"
                   role="Backend Developer"
-                  techStack="Java, Spring Boot, JPA, MySQL"
+                  techStack={["Java", "Spring Boot", "JPA", "MySQL"]}
                   description="Manages book catalog, issuing/returning books, fines, and user roles with real-time availability and overdue alerts."
                   highlights={["Rule-based Fines", "Inventory Logging", "Search Functionality"]}
                   className="h-full"
@@ -189,7 +189,7 @@ export default function Home() {
                 <ProjectCard
                   title="Smart Parking Lot System"
                   role="System Designer & Backend Engineer"
-                  techStack="Java, Spring Boot, MySQL, Microservices"
+                  techStack={["Java", "Spring Boot", "MySQL", "Microservices"]}
                   description="IoT-ready backend for managing smart parking slots, sensors, reservations, and availability checks using a microservices architecture."
                   highlights={["Dynamic Slot Allocation", "Availability Prediction", "Modular APIs"]}
                   className="h-full"
@@ -199,7 +199,7 @@ export default function Home() {
                 <ProjectCard
                   title="TaskMaster – Collaborative Task Tracking"
                   role="Full-Stack Engineer"
-                  techStack="Java, Spring Boot, Thymeleaf/React, MySQL, Spring Security"
+                  techStack={["Java", "Spring Boot", "Thymeleaf/React", "MySQL", "Spring Security"]}
                   description="Kanban-style task tracking system for teams with projects, task assignments, deadlines, and status tracking."
                   highlights={["Project Boards", "Deadline Indicators", "Team Collaboration", "Activity Logs"]}
                   className="h-full"
@@ -323,7 +323,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                {/* Schedule a Call button uses keyboard css */}
               <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
-                Schedule a Call
+                 <Calendar className="mr-2 h-4 w-4" /> Schedule a Call {/* Added Calendar Icon */}
               </a>
               {/* Email Me button uses keyboard css with custom styling */}
               <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "kbc-button border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground")}>
@@ -349,7 +349,7 @@ export default function Home() {
 interface ProjectCardProps {
   title: string;
   role: string;
-  techStack: string;
+  techStack: string[]; // Changed to string array
   description: string;
   highlights: string[];
   className?: string; // Added className prop
@@ -357,6 +357,7 @@ interface ProjectCardProps {
 
 // Make the ProjectCard component accept a className and apply glassmorphism
 // Added group hover and active states for animation
+// Updated tech stack display
 function ProjectCard({ title, role, techStack, description, highlights, className }: ProjectCardProps) {
   return (
     <Card className={cn(
@@ -366,7 +367,15 @@ function ProjectCard({ title, role, techStack, description, highlights, classNam
       <CardHeader>
         <CardTitle className="text-card-foreground">{title}</CardTitle> {/* Adjusted text color for contrast */}
         <CardDescription className="text-card-foreground/70">{role}</CardDescription> {/* Adjusted text color */}
-        <p className="text-sm text-card-foreground/60 pt-1"><strong>Tech:</strong> {techStack}</p> {/* Adjusted text color */}
+        {/* Updated Tech Stack Display with Keyboard CSS */}
+        <div className="pt-1 flex flex-wrap gap-1">
+           <strong className="text-sm text-card-foreground/60 mr-1">Tech:</strong>
+           {techStack.map((tech, index) => (
+             <span key={index} className="kbc-button text-xs px-1.5 py-0.5 !min-h-0 !h-auto !leading-tight"> {/* Applied kbc-button with adjustments */}
+               {tech}
+             </span>
+           ))}
+         </div>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
         <p className="text-sm mb-4 text-card-foreground/80">{description}</p> {/* Adjusted text color */}
