@@ -79,7 +79,7 @@ export default function Home() {
               <a href="#projects" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                  View My Work
               </a>
-              <a href="/resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
+              <a href="/Resume.pdf" download="Mrityunjay_Srivastava_Resume.pdf" className={cn(buttonVariants({ size: "lg" }), "kbc-button")}>
                 <Download className="mr-2 h-4 w-4" /> Download Résumé
               </a>
             </div>
