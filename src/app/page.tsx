@@ -61,9 +61,17 @@ export default function Home() {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70 pb-2">
               Hi, I’m Mrityunjay Srivastava
             </h1>
+            <br />
+
+            <p className="text-2xl font-semibold tracking-tight sm:text-4xl xl:text-5xl/none text-foreground/80 mb-4" style={{ fontStyle: "italic" }}>
+              Absurdist, Curious, Dreamer
+            </p>
+            <br />
             <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl xl:text-5xl/none text-foreground/80 mb-4">
               Full Stack Developer & AI Automation Engineer
             </h2>
+            <br />
+
             <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto mb-6">
               Crafting intelligent solutions and robust backends to drive innovation and efficiency.
             </p>
