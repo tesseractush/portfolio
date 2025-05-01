@@ -47,7 +47,6 @@ export default function Home() {
       <header className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <Logo className="h-8 w-8" />
-          Mrityunjay Srivastava
         </Link>
         <ThemeToggle />
       </header>
@@ -87,7 +86,7 @@ export default function Home() {
                  {/* Cover Image Placeholder */}
                  <div className="h-48 bg-muted relative overflow-hidden">
                    <Image
-                     src="https://github.com/tesseractush/portfolio/blob/main/public/cover.jpeg?raw=true"
+                     src="https://github.com/tesseractush/portfolio/blob/main/public/cover.jpg?raw=true"
                      alt="Profile cover"
                      fill // Use fill instead of layout
                      style={{ objectFit: 'cover' }} // Use style for objectFit
@@ -435,7 +434,7 @@ export default function Home() {
       <footer className="py-6 border-t bg-background">
         <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-center items-center text-sm text-muted-foreground"> {/* Centered content */}
           <p>&copy; {new Date().getFullYear()} Mrityunjay Srivastava. All rights reserved.</p>
-          {/* Removed social links from footer as they are in the About section */}
+          
         </div>
       </footer>
     </div>
