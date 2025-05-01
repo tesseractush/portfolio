@@ -344,20 +344,47 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
                <Card className="glassmorphism-card">
                  <CardHeader>
-                   <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-card-foreground" /> B.Tech Computer Science & Engineering</CardTitle>
+                   <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-card-foreground" /> Bachelors of Technology </CardTitle>
                  </CardHeader>
                  <CardContent>
-                   <p className="text-card-foreground/80">Uttarakhand Technical University, 2021</p>
+                   <p className="text-card-foreground/80">Computer Science & Engineering</p>
+                   <p className="text-card-foreground/80">Uttarakhand Technical University, (Sept 2021)</p>
                  </CardContent>
                </Card>
                <Card className="glassmorphism-card">
                  <CardHeader>
-                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Generative AI Nanodegree</CardTitle>
+                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Foundation of Generative AI </CardTitle>
                  </CardHeader>
                  <CardContent>
-                   <p className="text-card-foreground/80">Udacity Scholarship (Completed 2024)</p>
+                   <p className="text-card-foreground/80">Udacity, (Jan 9, 2025)</p>
                  </CardContent>
                </Card>
+                
+                <Card className="glassmorphism-card">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Master Spring framework </CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <p className="text-card-foreground/80">Udemy, (Nov 24, 2022)</p>
+                 </CardContent>
+               </Card>
+                <Card className="glassmorphism-card">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Machine Learning, ML</CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <p className="text-card-foreground/80">NPTEL (Apr 2019)</p>
+                 </CardContent>
+               </Card>
+                <Card className="glassmorphism-card">
+                 <CardHeader>
+                   <CardTitle className="flex items-center gap-2"><FileText className="h-5 w-5 text-card-foreground" /> Cross-Cultural Communication</CardTitle>
+                 </CardHeader>
+                 <CardContent>
+                   <p className="text-card-foreground/80">NASBA (Apr 2023)</p>
+                 </CardContent>
+               </Card>
+
                 <Card className="glassmorphism-card">
                  <CardHeader>
                    <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-card-foreground" /> 10+2 </CardTitle>
@@ -366,6 +393,9 @@ export default function Home() {
                    <p className="text-card-foreground/80">Saraswati Vidya Mandir Sr. Sec. School</p>
                  </CardContent>
                </Card>
+
+
+
 
             </div>
           </div>
@@ -440,7 +470,7 @@ export default function Home() {
       </main>
 
       <footer className="py-6 border-t bg-background">
-        <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-center items-center text-sm text-muted-foreground"> {/* Centered content */}
+        <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-left items-left text-sm text-muted-foreground"> {/* Centered content */}
           <p>&copy; {new Date().getFullYear()} Mrityunjay Srivastava. All rights reserved.</p>
           
         </div>
