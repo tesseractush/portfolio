@@ -453,26 +453,14 @@ export default function Home() {
                  <p className="max-w-[600px] text-foreground/80 md:text-xl mx-auto mb-8">
                    Interested in collaborating or discussing a project? Feel free to reach out.
                  </p>
-                <!-- Cal element-click embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "quick-connect", {origin:"https://cal.com"});
-
-  
-  // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
-  // `data-cal-link="tesseractush/quick-connect"`
-  // data-cal-namespace="quick-connect"
-  // `data-cal-config='{"layout":"week_view"}'`
-
-  Cal.ns["quick-connect"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#feff92"},"dark":{"cal-brand":"#feff92"}},"hideEventTypeDetails":true,"layout":"week_view"});
-  </script>
-  <!-- Cal element-click embed code ends -->
+                
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a data-cal-link="tesseractush/quick-connect" data-cal-namespace="quick-connect" data-cal-config='{"layout":"week_view"}' target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+                    <a href="tesseractush/quick-connect" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
                       <Calendar className="mr-2 h-4 w-4" /> 
                     Schedule a Call
-                  
+                
                     </a>
+                   
                     <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button border-foreground/30 text-foreground hover:bg-foreground/10 hover:text-foreground")}>
                       <Mail className="mr-2 h-4 w-4" /> Email Me
                     </a>
