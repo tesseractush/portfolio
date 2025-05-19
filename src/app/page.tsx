@@ -454,8 +454,17 @@ export default function Home() {
                    Interested in collaborating or discussing a project? Feel free to reach out.
                  </p>
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://calendly.com/your-link" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
-                      <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
+                    <a href="https://calendly.com/tesseractush" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+                      <Calendar className="mr-2 h-4 w-4" /> 
+                      <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 py-6 h-auto text-lg"
+                    data-cal-link="tesseractush"
+                    data-cal-namespace="tesseractush"
+                    data-cal-config='{"layout":"month_view"}'
+                  >
+                    Schedule a Call
+                  </Button>
                     </a>
                     <a href="mailto:tesseractush@gmail.com" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button border-foreground/30 text-foreground hover:bg-foreground/10 hover:text-foreground")}>
                       <Mail className="mr-2 h-4 w-4" /> Email Me
