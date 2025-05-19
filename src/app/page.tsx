@@ -455,7 +455,7 @@ export default function Home() {
                  </p>
                 
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="tesseractush/quick-connect" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
+                    <a href="cal.com/tesseractush/quick-connect" target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "kbc-button bg-primary-foreground text-primary hover:bg-primary-foreground/90")}>
                       <Calendar className="mr-2 h-4 w-4" /> 
                     Schedule a Call
                 
