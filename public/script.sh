@@ -23,7 +23,7 @@ echo -e "${YELLOW}— ${AUTHOR}${RESET}"
 echo ""
 
 # 🌠 NASA APOD title + clickable link
-APOD=$(curl -s "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+APOD=$(curl -s "https://api.nasa.gov/planetary/apod?api_key=ldFpfnT4OXFQ8xtRHsiZXfWdF5k5NQhBsDVCtMC4")
 APOD_TITLE=$(echo "$APOD" | sed -En 's/.*"title":"([^"]+)".*/\1/p')
 APOD_URL=$(echo "$APOD" | sed -En 's/.*"url":"([^"]+)".*/\1/p')
 echo -e "${CYAN}Today's Astronomy Picture title:${RESET}"
