@@ -59,7 +59,7 @@ echo -e "${CYAN}🌡️ Temperature: ${YELLOW}${TEMP}°C${RESET} • Code: ${YEL
 echo ""
 
 # 🎶 Background Music Tip
-MUSIC_PATH="https://soundcloud.com/gordonstar/hans-zimmer-stay-interstellar-main-theme-gordon-star-rework"
+MUSIC_PATH="public/15 S.T.A.Y..mp3?raw=true"
 echo -e "${MAGENTA}🎵 Tip: play “S.T.A.Y.” by Hans Zimmer:${RESET}"
 if command -v afplay &>/dev/null; then
   echo -e "     afplay \"${MUSIC_PATH}\""
