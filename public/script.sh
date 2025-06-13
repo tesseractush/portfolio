@@ -1,11 +1,58 @@
 #!/bin/bash
 
 # ANSI colors
-CYAN='\033[1;36m'; MAGENTA='\033[1;35m'; YELLOW='\033[1;33m'
+CYAN='\033[1;36m'; MAGENTA='\033[1;35m'; YELLOW='\033[1;33m'; Green='\e[42m\e[38;5;32m]';
 BOLD='\033[1m'; RESET='\033[0m'
 
 # Clear
 clear
+color1="\e[49m\e[38;5;52m"
+color2="\e[49m\e[38;5;88m"
+color3="\e[49m\e[38;5;124m"
+color4="\e[49m\e[38;5;160m"
+color5="\e[49m\e[38;5;196m"
+color6="\e[49m\e[38;5;203m"
+color7="\e[49m\e[38;5;210m"
+color8="\e[49m\e[38;5;217m"
+color9="\e[49m\e[38;5;224m"
+color0="\e[49m\e[38;5;255m"
+
+                                                  
+printf "${color0}                                  ████████████████████████████████▒     ${reset}\n"
+printf "${color0}                                █████                               █     ${reset}\n"
+printf "${color0}                             ████████                               █     ${reset}\n"
+printf "${color0}                             ████████     ████                      █     ${reset}\n"
+printf "${color0}                             ████████   █████████                   █     ${reset}\n"
+printf "${color0}                             ████████    ██▒██                      █     ${reset}\n"
+printf "${color0}                             ████████    █████                      █     ${reset}\n"
+printf "${color0}                             ████████    ██▓██                      █     ${reset}\n"
+printf "${color0}                             ████████    ██  █ ██                   █     ${reset}\n"
+printf "${color0}                             ████████    ██   ████                  █     ${reset}\n"
+printf "${color0}                             ████████     ███████  █████████████    █     ${reset}\n"
+printf "${color0}                             ████████                               █     ${reset}\n"
+printf "${color0}                             ████████                               █     ${reset}\n"
+printf "${color0}                             ████████                               █     ${reset}\n"
+printf "${color0}                             ███████████████████████████████████████      ${reset}\n"
+printf "${color0}                             ██████████████████████████████████           ${reset}\n"
+                                                  
+                                                  
+                                                  
+printf "\n\n\n"                                            
+
+
+printf "${color2}▄▄▄█████▓ ▓█████  ██████   ██████  ▓█████ ██▀███   ▄▄▄       ▄████▄ ▄▄▄█████▓ █    ██   ██████   ██░ ██ ${reset}\n"
+printf "${color2}▓  ██▒ ▓▒ ▓█   ▀▒██    ▒ ▒██    ▒  ▓█   ▀▓██ ▒ ██▒▒████▄    ▒██▀ ▀█ ▓  ██▒ ▓▒ ██  ▓██▒▒██    ▒ ▒▓██░ ██ ${reset}\n"
+printf "${color3}▒ ▓██░ ▒░ ▒███  ░ ▓██▄   ░ ▓██▄    ▒███  ▓██ ░▄█ ▒▒██  ▀█▄  ▒▓█    ▄▒ ▓██░ ▒░▓██  ▒██░░ ▓██▄   ░▒██▀▀██ ${reset}\n"
+printf "${color4}░ ▓██▓ ░  ▒▓█  ▄  ▒   ██▒  ▒   ██▒ ▒▓█  ▄▒██▀▀█▄  ░██▄▄▄▄██▒▒▓▓▄ ▄██░ ▓██▓ ░ ▓▓█  ░██░  ▒   ██▒ ░▓█ ░██ ${reset}\n"
+printf "${color5}  ▒██▒ ░ ▒░▒████▒██████▒▒▒██████▒▒▒░▒████░██▓ ▒██▒▒▓█   ▓██░▒ ▓███▀   ▒██▒ ░ ▒▒█████▓ ▒██████▒▒ ░▓█▒░██▓${reset}\n"
+printf "${color6}  ▒ ░░   ░░░ ▒░ ▒ ▒▓▒ ▒ ░▒ ▒▓▒ ▒ ░░░░ ▒░ ░ ▒▓ ░▒▓░░▒▒   ▓▒█░░ ░▒ ▒    ▒ ░░   ░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░▒░▒${reset}\n"
+printf "${color7}    ░    ░ ░ ░  ░ ░▒  ░ ░░ ░▒  ░ ░░ ░ ░    ░▒ ░ ▒ ░ ░   ▒▒    ░  ▒      ░    ░░▒░ ░ ░ ░ ░▒  ░ ░  ▒ ░▒░ ░${reset}\n"
+printf "${color8}  ░ ░        ░  ░  ░  ░  ░  ░  ░      ░    ░░   ░   ░   ▒   ░         ░       ░░░ ░ ░ ░  ░  ░    ░  ░░ ░${reset}\n"
+printf "${color9}         ░   ░        ░        ░  ░   ░     ░           ░   ░ ░                 ░           ░    ░  ░  ░${reset}\n"
+
+                                                                          
+
+
 
 # 🎉 Banner
 echo -e "${MAGENTA}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓${RESET}"
@@ -13,6 +60,7 @@ echo -e "${MAGENTA}┃${RESET}  ${BOLD}${CYAN}Hello from${RESET} ${YELLOW}Mrityu
 echo -e "${MAGENTA}┃${RESET}    ${CYAN}✨ Welcome to my world 🌍 ✨${RESET}     ${MAGENTA}┃${RESET}"
 echo -e "${MAGENTA}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${RESET}"
 echo ""
+
 
 # 📜 Quote of the Day
 QUOTE_JSON=$(curl -s https://zenquotes.io/api/today)
@@ -31,46 +79,11 @@ echo -e "${YELLOW}${APOD_TITLE}${RESET}"
 echo -e "${CYAN}🖼️ View it here: ${APOD_URL}${RESET}"
 echo ""
 
-# 🚀 ISRO Launches
-ISRO=$(curl -s https://isro.vercel.app/api/launches)
-echo -e "${CYAN}Next ISRO Launches:${RESET}"
-echo "$ISRO" | jq -c '.[]' | head -n 3 | while read -r launch; do
-  NAME=$(echo "$launch" | jq -r '.name')
-  DATE=$(echo "$launch" | jq -r '.date')
-  LOCAL_DATE=$(date -d "$DATE" +"%b %d, %Y at %I:%M %p" 2>/dev/null || echo "$DATE")
-  echo -e "${YELLOW}- ${NAME} → ${LOCAL_DATE}${RESET}"
-done
-echo ""
-
-# 📍 Get user location
-LOC_JSON=$(curl -s https://ipapi.co/json/)
-CITY=$(echo "$LOC_JSON" | jq -r '.city')
-LAT=$(echo "$LOC_JSON" | jq -r '.latitude')
-LON=$(echo "$LOC_JSON" | jq -r '.longitude')
-TZ=$(echo "$LOC_JSON" | jq -r '.timezone')
-
-# 🌤️ Weather
-WEATHER=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&timezone=${TZ}")
-TEMP=$(echo "$WEATHER" | jq -r '.current_weather.temperature')
-CODE=$(echo "$WEATHER" | jq -r '.current_weather.weathercode')
-
-echo -e "${CYAN}📍 Location: ${CITY}${RESET}"
-echo -e "${CYAN}🌡️ Temperature: ${YELLOW}${TEMP}°C${RESET} • Code: ${YELLOW}${CODE}${RESET}"
-echo ""
-
-# 🎶 Background Music Tip
-MUSIC_PATH="public/15 S.T.A.Y..mp3?raw=true"
-echo -e "${MAGENTA}🎵 Tip: play “S.T.A.Y.” by Hans Zimmer:${RESET}"
-if command -v afplay &>/dev/null; then
-  echo -e "     afplay \"${MUSIC_PATH}\""
-elif command -v mpg123 &>/dev/null; then
-  echo -e "     mpg123 \"${MUSIC_PATH}\""
-else
-  echo -e "${YELLOW}     Install afplay (Mac) or mpg123 (Linux) to play music.${RESET}"
-fi
-echo ""
-
 # 🔗 Footer
 echo -e "${YELLOW}🔗 Visit: https://tesseractush.in${RESET}"
+
 echo -e "${CYAN}🚀 Explore projects, code & thoughts.${RESET}"
 echo ""
+
+echo -e "${MAGENTA}Legend!${RESET}"
+echo -e "${GREEN}curl${RESET}" "${YELLOW} tesseractush.in/projects.sh💻✨${RESET}"
