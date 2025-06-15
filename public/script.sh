@@ -70,14 +70,7 @@ echo -e "${CYAN}“${QUOTE}”${RESET}"
 echo -e "${YELLOW}— ${AUTHOR}${RESET}"
 echo ""
 
-# 🌠 NASA APOD
-APOD=$(curl -s "https://api.nasa.gov/planetary/apod?api_key=ldFpfnT4OXFQ8xtRHsiZXfWdF5k5NQhBsDVCtMC4")
-APOD_TITLE=$(echo "$APOD" | jq -r '.title')
-APOD_URL=$(echo "$APOD" | jq -r '.url')
-echo -e "${CYAN}Today's Astronomy Picture title:${RESET}"
-echo -e "${YELLOW}${APOD_TITLE}${RESET}"
-echo -e "${CYAN}🖼️ View it here: ${APOD_URL}${RESET}"
-echo ""
+
 
 # 🔗 Footer
 echo -e "${YELLOW}🔗 Visit: https://tesseractush.in${RESET}"
